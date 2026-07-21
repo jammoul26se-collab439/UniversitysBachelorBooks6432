@@ -1,179 +1,662 @@
-<!Doctype html>
-<html>
-    <head>
-      <title>Guide Page</title>
-      <meta name="viewport" content="width=device-width,initial-scale=1.0">
-      <style>
+<!DOCTYPE html>
+<html lang = "en">
+<head>
+    <meta charset = "UTF-8">
+    <meta name = "viewport" content = "width=device-width,initial-scale=1.0">
+    <title>My University's Books</title>
+    <style>
+        .carousel-container {
+            display: flex;
+            align-items: flex-start;
+            gap: 25px;
+        }
+
         body {
-        zoom:0.85;
+        zoom: 0.85;
         font-family : Arial , sans-serif ;
         background: linear-gradient(135deg,#0f172a, #1e293b);
         color: #ffffff;
-        }
-        
-        h2 {
-           margin-bottom: -15px;
-        }
-
-        .priceTable {
-            width: 300px;
-            border-collapse : collapse;
-            margin: 20px 0;
-            background-color: rgba(255,255,255,0.05);
-            color:white;
-            font-family: Arial , sans-serif;
-            font-size: 14px;
-        }
-        .priceTable th {
-            background-color: rgb(228, 12, 12);
-            color: white;
-            padding: 8px;
-            border: 1px solid #b45309;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+        margin: 0;
+        padding: 0;
         }
 
-        .priceTable td {
-            padding: 7px;
-            text-align: center;
-            background-color: rgb(3, 151, 214);
-            border-bottom: 1px solid #b45309;
-        }
-        .priceTable th:first-child(2) ,
-        .priceTable td:first-child(2) {
-            background-right : 2px solid #d97706;
+        .carousel {
+            position: relative;
+            width: 550px;
+            margin-left: 800px;
+            margin-right: 0px;
+            margin-top: 100px;     
         }
 
-        .priceTable tr:hover {
-            background-color: rgba(217,119,6,0.12);
+        .carousel img {
+            width: 100%;
+            height: 420px;
+            object-fit : contain;
         }
 
-        .priceTable th , 
-        .priceTable td {
-            padding: 8px;
-            text-align: center;
-            border: 1px solid #b45309;
+       
+
+        .prev {
+            left: 10px;
         }
-        .section-title {
+
+        .next {
+            right: 10px;
+        }
+
+        #description {
+            margin-top: 15px;
+            white-space: pre-wrap;
+            margin-left: 55px;
+            font-size: 16px;
+            text-align: left;
+        }
+
+        .left-content {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 60%;
+        }
+
+        #intro-text {
+            font-family: Georgia , "Times New Roman" , serif;
+            font-size: 18px;
+            line-height: 1.7;
+        }
+
+        #showFormBtn {
+            padding: 15px 30px;
+            font-size: 10px;
+            font-weight: bold;
             background-color: #42082c;
             color: white;
-            padding : 10px 20px;
+            border: none;
             border-radius: 8px;
-            display: inline-block;
-            font-size: 32px;
-            font-weight: bold;
-            margin-bottom: 10px;
+            cursor: pointer;
+            display: block; 
+            margin-left: 0;
+
         }
-        @media (max-width: 768px) {
-            body {
-                zoom:0.9;
-                font-size: 20px;
-            }
-            .section-title {
-                font-size: 40px;
-                padding: 12px 22px;
-                display: inline-block;
-            }
-            ol,ul,li {
-                font-size: 20px;
-                line-height: 1.7;
-            }
-            .priceTable {
-                width: 95%;
-                max-width: 500px;
-                font-size: 20px;
-            }
-            .priceTable th , .priceTable td {
-                padding: 12px;
-            }
+
+        #bookForm {
+            margin-top: 20px;
+            padding: 15px;
+            width: 250px;
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid #ccc;
+            border-radius: 8px;
         }
-        </style>
-    </head>
-    <body>
-        <div class="section-title">
-                How to Request ?
-        </div>
-             <br><br>
-        <ol>
-            <li>
-                Click the <b>Request</b> button and fill
-                in the required information (Full Name , Phone Number , etc..). If you hava
-                a <b>Secret Code</b>enter it to receive a special discount.
-            </li>
-            <br>
-            <li>
-                Click the <b>Add Books</b> button and complete
-                your order by selecting the book type and quantity .You may use the <b>delete</b> button
-                to remove the last added item if you change your mind about a book or quantity.
-            </li>
-            <br><br>
-                Please note:
-                <ul>
-                    <li>If you order one book , a <b>3$ delivery fee</b> will be added</li>
-                    <li>If you order two books , delivery is <b>free</b> </li>
-                    <li>If you order three books or more , delivery is <b>free</b> and a <b>5% discount</b> will applied to the entire order.</li>
-                    </ul>
-                    <br>
-                    <li>
-                        When you finished your order , click the <b>Submit</b> button . You will be redirected directly to the paument application.
-                    
-                    <br><br>
-                My payment number is <b>+961 76 125 354</b>
-                <br><br>
-                Please transfer the exact amount displeyed on your screen 
-                <br><br>
-                After payment is completed , your order will be processed and delivered within a few days .One day before delivery, the delivery driver will contact you to arrange the exact time and location
-                <br><br>
-                If you have any questions or need assistance , you may contact me directly through <b>WhatsApp only</b> using the same number listed above    
-            
-        </li>
-        </ol>
-        <div class = "section-title">
-            Books Prices
-        </div>
+
+        #bookForm input,
+        #bookForm select {
+            width: 90%;
+            padding: 5px;
+            font-size: 14px;
+            border-radius: 5px;
+        }
+
+        #addBooksBtn {
+            padding: 10px 15px;
+            background-color: #42082c;
+            color: white;
+            border: none;
+            border-radius: 6px;
+        }
+
+        .forms-container {
+            display: flex;
+            gap: 20px;
+            align-items: flex-start;
+        }
+
+        #orderBox {
+            display: none;
+            margin-top: -35px;
+            padding: 15px;
+            width:500px;
+            background-color: rgba(255,255,255,0.1);
+            border: 1px solid #ccc;
+            border-radius: 8px;
+        }
+
+        #orderBox select {
+            width:90%;
+            padding: 5px;
+            border-radius: 5px;
+        }
+        #addBooksBtn ,
+        #addOrderBtn ,
+        #guideBtn ,
+        #deleteBtn ,
+        #submitBtn {
+            padding: 10px 15px;
+            background-color: #42082c;
+            color:white;
+            border: none;
+            border-radius: 6px;
+            cursor:pointer;
+        }
+
+        #titleBar {
+            background-color: #42082c;
+            width: 100%;
+            padding: 10px 20px;
+            position: static;
+            top: 0;
+            left: 0;
+        }
+
+        #titleBar h1 {
+            margin:0;
+            color: white;
+        }
+
+
+        #submitContainer {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
         
-        <table class = "priceTable">
+        @media(max-width: 768px) {
+            body {
+                zoom: 0.9;
+                display: block;
+                padding: 10px;
+            }
+            .left-content {
+                position: static;
+                width: 100%;
+                top: auto;
+                left: auto;
+            }
+
+            .forms-container {
+                flex-direction: column;
+                gap:15px;
+            }
+            #bookForm , #orderBox {
+                width: 95%;
+                box-sizing: border-box;
+            }
+            .carousel-container {
+                display: block;
+                margin-top: 30px;
+            }
+            #verticalBar {
+                display: none;
+            }
+            .carousel {
+                width: 100%;
+                margin: 30px auto;
+            }
+            .carousel img {
+                height: auto;
+                width:100%;
+                max-height: 350px;
+            }
+            #description {
+                margin-left: 0;
+                text-align: left;
+                margin-top: 15px;
+                font-size: 14px;
+                white-space: normal;
+            }
+            #titleBar {
+                position: static;
+                width: 100%;
+                padding: 10px;
+            }
+            #titleBar h1 {
+                font-size: 32px;
+            }
+
+            #intro-text {
+                font-size: 15px
+            }
+            #orderBox {
+                display:none;
+                margin-top: 25px;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <div class = "left-content">
+        <div id="titleBar">
+            <h1>My University's Books</h1>
+        </div>
+         <p id = "intro-text">These books were designed for university students who seek knowledge and understanding in a simple and efficient manner, allowing them to learn quickly with minimal complexity.</p>
+         <button id="showFormBtn" onclick = "toggleForm()">Request</button>
+         <div class="forms-container">
+         <div id="bookForm" style="display:none;">
+        <label>Full Name:</label><br>
+        <input type="text" id="fullName" maxlength="25" oninput="this.value=this.value.replace(/[^a-zA-Z ]/g,'')"><br><br>
+        <label>Phone Number:</label><br>
+        <input type = "text" id="phoneNumber" maxlength="8" oninput="this.value=this.value.replace(/[^0-9]/g,'')"><br><br>
+        <label>Email:</label><br>
+        <input type="email" id="email" required><br><br>
+        <label>City:</label><br>
+        <select id="city">
+            <option>Nabatieh</option>
+            <option>Marjeyoun</option>
+            <option>Beirut</option>
+            <option>Tripoli</option>
+            <option>Akkar</option>
+            <option>Saida</option>
+            <option>Tyre</option>
+            <option>Zahle</option>
+            <option>Jounieh</option>
+            <option>Jbeil</option>
+            <option>Batroun</option>
+            <option>Mount Lebanon</option>
+            <option>Bekaa</option>
+        </select> <br> <br>
+        <label>Secret Code (Bonus) </label> <br>
+        <input type = "text" id = "secretCode" maxlength = "20" oninput="this.value=this.value.replace(/[^0-9]/g,'')"><br><br>
+        <button id="addBooksBtn" onclick="showOrderBox()">
+            Add Books
+        </button>
+    </div>
+    <div id="orderBox" style="display:none;">
+        <label>Book Name:</label><br>
+        <select id = "bookSelect">
+            <option>Java</option>
+            <option>Web</option>
+            <option>Mobile Application</option>
+            <option>AI</option>
+            <option>Machine Learning</option>
+            <option>Digital Logic</option>
+            <option>Python</option>
+            <option>C++</option>
+            <option>C#</option>
+            
+        </select> <br><br>
+        <label>Number of Items:</label><br>
+        <select id="quantitySelect">
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+            <option>6</option>
+            <option>7</option>
+            <option>8</option>
+            <option>9</option>
+        </select>
+        <br><br>
+        <label>Pay Way:</label>
+        <select id="payWay">
+            <option>Whish Money</option>
+            <option>OMT Pay</option>
+        </select>
+        <br><br>
+        <button id="addOrderBtn" onclick="addOrder()">Add Order</button> <button id = "guideBtn" onclick = "openGuide()">Guide</button>
+        <button id="deleteBtn" onclick = "deleteOrder()" style ="display:none;">Delete</button>
+        <hr>
+        <h3>Total Orders: <span id="totalOrders">0</span> | Total Revenue: $<span id="totalRevenue">0.00</span> </h3>
+        <p id="deliveryText" style="color:red; display:none;">3$ Delivery Required</p>
+        <p id="freeDeliveryText" style="color:lime; display:none;">Free Delivery</p>
+        <p id="discountText" style="color:gold; display:none;">5% Discount Applied</p> 
+        <table border ="1" id="ordersTable">
             <tr>
-                <th>Book</th>
-                <th>Price</th>
-            </tr>
-            <tr>
-                <td>Java</td>
-                <td>$18.00</td>
-            </tr>
-            <tr>
-                <td>Web</td>
-                <td>$18.00</td>
-            </tr>
-            <tr>
-                <td>Mobile Application</td>
-                <td>$16.00</td>
-            </tr>
-            <tr>
-                <td>AI</td>
-                <td>$16.00</td>
-            </tr>
-            <tr>
-                <td>Machine Learning</td>
-                <td>$16.00</td>
-            </tr>
-            <tr>
-                <td>Digital Logic</td>
-                <td>$16.00</td>
-            </tr>
-            <tr>
-                <td>Python</td>
-                <td>$16.00</td>
-            </tr>
-            <tr>
-                <td>C++</td>
-                <td>$16.00</td>
-            </tr>
-            <tr>
-                <td>C#</td>
-                <td>$16.00</td>
+                <th>Book Name</th>
+                <th>Number of Items</th>
+                <th>Total</th>
             </tr>
         </table>
+        <br> <p id="orderError" style="color:red; display:none;">Please add at least one book</p>
+        <div id="submitContainer">
+            <button id="submitBtn" onclick="submitOrder()">
+            Submit 
+        </button>
+       <span id="phoneText" style="color:red; display:none; margin-left:10px;">My Phone Number: +961 76 125 354</span>
+        </div>
+    </div>
+    </div>
+   </div>
+   <div class="carousel-container">
+    <div class = "carousel">
+            <img id="slider" src="UBooksPhotos/UJava.jpeg" alt="Slider Image">
+        <pre id = "description">This book provides a comprehensive introduction to Java programming, starting with fundamentals to Object-Oriented Programming (OOP) to Data Structures and Algorithms. Designed for university's students , it simplifies complex concepts and offers a solid foundation for academic success and software development</pre>
+   </div>
+   </div>
     <script>
+    let discountApplied = false;
+    let totalOrders = 0;
+    let totalItems = 0;
+    let totalRevenue = 0;
+    let deliveryAdded = false;
+    const clickSound = new Audio("ClickSoundTrackBooks.mp4");
 
+    const images = [
+   "UBooksPhotos/UJava.jpeg" ,
+   "UBooksPhotos/UWeb.png" ,
+   "UBooksPhotos/UMobileApplication.png" ,
+   "UBooksPhotos/UMachineLearning.png" ,
+   "UBooksPhotos/UDigitalLogic.png" ,
+   "UBooksPhotos/UPython.png" ,
+   "UBooksPhotos/UCpp.png" ,
+   "UBooksPhotos/USoft.png"
+    ];
+    
+    const descriptions = [
+        "This book provides a comprehensive introduction to Java programming, starting with fundamentals to Object-Oriented Programming (OOP) to Data Structures and Algorithms. Designed for university's students , it simplifies complex concepts and offers a solid foundation for academic success and software development" ,
+        "empty 2" ,
+        "empty 3" ,
+        "empty 4" ,
+        "empty 5" ,
+        "empty 6" ,
+        "empty 7" ,
+        "empty 8" ,
+        "empty 9"
+    ];
+
+    const prices = {
+        "Java" : 18 ,
+        "Web" : 18 ,
+        "Mobile Application" : 18 ,
+        "AI" : 16 ,
+        "Machine Learning" : 16 ,
+        "Digital Logic" : 16 ,
+        "Python"  : 16 ,
+        "C++" : 16 ,
+        "C#" : 16
+    };
+
+    let current = 0;
+
+    async function submitOrder() {
+        playClickSound();
+        const fullName = document.getElementById("fullName").value;
+        const phone = document.getElementById("phoneNumber").value;
+        const email = document.getElementById("email").value;
+        const city = document.getElementById("city").value;
+        const payWay = document.getElementById("payWay").value;
+        const secretCode = document.getElementById("secretCode").value;
+        let hasError = false;
+        if(fullName.trim() === "") {
+            document.getElementById("fullName").style.border = "2px solid red";
+            hasError = true;
+        }
+        if(phone.trim() === "") {
+            document.getElementById("phoneNumber").style.border = "2px solid red";
+            hasError = true;
+        }
+
+        if(email.trim() === "") {
+            document.getElementById("email").style.border = "2px solid red";
+            hasError = true;
+        }
+        if(email.trim() !== ""  && !document.getElementById("email").checkValidity()) {
+            document.getElementById("email").style.border = "2px solid red";
+            hasError = true;
+        }
+
+        if(totalOrders === 0) {
+            document.getElementById("addOrderBtn").style.border = "2px solid red";
+        }
+
+        if(hasError) {
+            return;
+        }
+
+        let ordersText = "";
+
+        const rows = document.querySelectorAll("#ordersTable tr");
+
+        for(let i=1 ; i<rows.length ;i++) {
+        const cells = rows[i].cells;
+        ordersText += cells[0].textContent + " | " + cells[1].textContent + " | " + cells[2].textContent + "\n"; 
+        }
+        const formData = new FormData();
+
+        formData.append(
+            "access_key" ,
+            "bb1f7e15-837b-4736-a479-9c92600e4c47"
+        );
+
+        formData.append(
+            "subject" ,
+            "New University Books Order"
+        );
+
+        formData.append(
+            "name" ,
+            fullName
+        );
+
+        formData.append(
+            "phone" ,
+            phone
+        );
+        formData.append(
+            "email" ,
+            email
+        );
+        formData.append(
+            "city" ,
+            city
+        );
+
+        formData.append(
+            "secretCode" ,
+            secretCode.trim() === "" ? "Empty" : secretCode
+        );
+
+        formData.append(
+            "payment" ,
+            payWay
+        );
+        
+        if(totalItems >= 3) {
+            ordersText += "\nFree Delivery";
+            ordersText += "\n5% Discount Required";
+        }
+        else if(totalItems >= 2) {
+            ordersText += "\nFree Delivery";
+        }
+        else if(deliveryAdded)
+            ordersText += "\n3$ Delivery Required";
+
+
+        formData.append(
+            "orders" ,
+            ordersText
+        );
+
+        formData.append(
+            "totalOrders" ,
+            totalOrders
+        );
+
+        let finalRevenue = totalRevenue;
+        if(totalItems >=3)
+          finalRevenue = totalRevenue*0.95;
+
+        formData.append(
+            "totalRevenue" ,
+            "$" + finalRevenue.toFixed(2)
+        );
+
+        const response = await fetch( "https://api.web3forms.com/submit" ,
+            {
+              method : "POST" , 
+              body : formData
+            }
+        );
+ 
+        const result = await response.json();
+
+        if(result.success) {
+            if(payWay === "Whish Money") {
+                window.open("https://www.whish.money", "_blank");
+            }
+            else if(payWay === "OMT Pay") {
+                window.open("https://www.omt.com.lb/en/omt-pay" , "_blank");
+            }
+        }
+             
+       else 
+        alert("Failed to send order.");
+       
+    }
+    
+    function playClickSound() {
+        clickSound.currentTime = 0;
+        clickSound.play();
+    }
+    function showImage() {
+        document.getElementById("slider").src = images[current];
+        document.getElementById("description").textContent = descriptions[current] ;
+    }
+    
+    function openGuide() {
+        playClickSound();
+        window.open("Guide.html" , "_blank");
+    }
+
+    function addOrder() {
+        playClickSound();
+        const book = document.getElementById("bookSelect").value;
+        const quantity = parseInt(document.getElementById("quantitySelect").value);
+        totalItems += quantity;
+        const total = quantity * prices[book];
+        if(!deliveryAdded) {
+            totalRevenue+=3;
+            deliveryAdded = true;
+        document.getElementById("deliveryText").style.display = "block";
+        document.getElementById("phoneText").style.display = "block";
+        }
+        if(totalItems >= 2) {
+            if(deliveryAdded) {
+                totalRevenue-=3;
+                deliveryAdded = false;
+            }
+            document.getElementById("deliveryText").style.display = "none";
+            document.getElementById("freeDeliveryText").style.display = "block";
+        }
+        document.getElementById("phoneText").style.display = "block";
+        
+        totalOrders++;
+        document.getElementById("deleteBtn").style.display = "inline-block";
+        totalRevenue +=total;
+        let displayedRevenue = totalRevenue ;
+        if(totalItems >= 3) {
+            displayedRevenue = totalRevenue*0.95 ;
+            document.getElementById("discountText").style.display = "block";
+        }
+        else {
+            document.getElementById("discountText").style.display = "none" ;
+        }
+        document.getElementById("totalOrders").textContent = totalOrders ;
+        document.getElementById("totalRevenue").textContent = displayedRevenue.toFixed(2);
+        const table = document.getElementById("ordersTable");
+        const row = table.insertRow();
+        row.insertCell(0).textContent = book;
+        row.insertCell(1).textContent = quantity;
+        row.insertCell(2).textContent = "$" + total.toFixed(2);
+    }
+
+    function showOrderBox() {
+        playClickSound();
+        const orderBox =  document.getElementById("orderBox");
+      if(orderBox.style.display === "none" || orderBox.style.display ==="") 
+        orderBox.style.display = "block";
+      else
+    orderBox.style.display = "none"; 
+      }
+
+    function nextImage() {
+        current = (current + 1) % images.length ;
+        showImage();
+    }
+   function prevImage() {
+       current = (current - 1 + images.length) % images.length ; 
+       showImage();
+   }
+
+   function toggleForm() {
+    playClickSound();
+    const form = document.getElementById("bookForm");
+    const orderBox = document.getElementById("orderBox");
+
+    if(form.style.display === "none") 
+    form.style.display = "block";
+    else {
+        form.style.display = "none";
+        orderBox.style.display = "none";
+    }
+   }
+
+   setInterval(nextImage , 3000);
+
+   document.getElementById("fullName").addEventListener("input" , function() {
+    this.style.border = "";
+   });
+   document.getElementById("phoneNumber").addEventListener("input" , function() {
+    this.style.border = "";
+   });
+   document.getElementById("email").addEventListener("input" , function() {
+    this.style.border = "";
+   })
+
+   function deleteOrder() {
+    playClickSound();
+    const table = document.getElementById("ordersTable");
+    if(table.rows.length <= 1) 
+      return;
+    const lastRow = table.rows[table.rows.length - 1];
+   const book = lastRow.cells[0].textContent ;
+   const quantity = parseInt(lastRow.cells[1].textContent);
+   totalItems -= quantity;
+   const total = quantity*prices[book];
+    table.deleteRow(table.rows.length - 1);
+    totalOrders--;
+    totalRevenue -= total;
+    if(totalItems < 2 && totalOrders >0) {
+        if(!deliveryAdded) {
+          totalRevenue+=3;
+          deliveryAdded = true;    
+        }
+        document.getElementById("freeDeliveryText").style.display = "none";
+        document.getElementById("deliveryText").style.display = "block";
+    }
+    if(totalOrders === 0) {
+        totalItems = 0;
+        totalRevenue = 0;
+        deliveryAdded = false;
+        document.getElementById("freeDeliveryText").style.display = "none";
+        document.getElementById("deliveryText").style.display = "none";
+        document.getElementById("phoneText").style.display = "none";
+        document.getElementById("deleteBtn").style.display = "none";
+    }
+    if(totalItems < 3) {
+        discountApplied = false;
+        document.getElementById("discountText").style.display = "none";
+    }
+    document.getElementById("totalOrders").textContent = totalOrders;
+    document.getElementById("totalRevenue").textContent = totalRevenue.toFixed(2);
+   }
+
+   window.onload = function() {
+
+   if(window.innerWidth <= 768) {
+      if(!localStorage.getItem("mobileNoticeShown")) {
+        alert("For a better layout and easier control, using a laptop or desktop device is recommended");
+        localStorage.setItem("mobileNoticeShown" , "true");
+      }
+   }
+    alert("Notice: This website is not active and should not be used before November 1 , 2026");
+   };
     </script>
-    </body>
+</body>
+
 </html>
