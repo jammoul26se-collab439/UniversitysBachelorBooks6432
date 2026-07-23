@@ -241,8 +241,6 @@
         <input type="text" id="fullName" maxlength="25" oninput="this.value=this.value.replace(/[^a-zA-Z ]/g,'')"><br><br>
         <label>Phone Number:</label><br>
         <input type = "text" id="phoneNumber" maxlength="8" oninput="this.value=this.value.replace(/[^0-9]/g,'')"><br><br>
-        <label>Email:</label><br>
-        <input type="email" id="email" required><br><br>
         <label>City:</label><br>
         <select id="city">
             <option>Nabatieh</option>
@@ -268,16 +266,14 @@
     <div id="orderBox" style="display:none;">
         <label>Book Name:</label><br>
         <select id = "bookSelect">
+            <option>Mobile App</option>
             <option>Java</option>
+            <option>AI & Machine Learning</option>
             <option>Web</option>
-            <option>Mobile Application</option>
-            <option>AI</option>
-            <option>Machine Learning</option>
+            <option>Software Engineering</option>
             <option>Digital Logic</option>
-            <option>Python</option>
             <option>C++</option>
-            <option>C#</option>
-            
+            <option>Python</option>    
         </select> <br><br>
         <label>Number of Items:</label><br>
         <select id="quantitySelect">
@@ -291,6 +287,10 @@
             <option>8</option>
             <option>9</option>
         </select>
+        <br><br>
+        <label>Add Exercises?</label><br>
+        <label><input type="radio" name="exercise" value="Yes" id="exerciseYes">Yes</label>
+        <label><input type="radio" name="exercise" value="No" id="exerciseNo">No</label>
         <br><br>
         <label>Pay Way:</label>
         <select id="payWay">
@@ -324,7 +324,7 @@
    </div>
    <div class="carousel-container">
     <div class = "carousel">
-            <img id="slider" src="UBooksPhotos/UJava.jpeg" alt="Slider Image">
+            <img id="slider" src="UBooksPhotos/UMobileApplication.png" alt="Slider Image">
         <pre id = "description">This book provides a comprehensive introduction to Java programming, starting with fundamentals to Object-Oriented Programming (OOP) to Data Structures and Algorithms. Designed for university's students , it simplifies complex concepts and offers a solid foundation for academic success and software development</pre>
    </div>
    </div>
@@ -337,38 +337,43 @@
     const clickSound = new Audio("ClickSoundTrackBooks.mp4");
 
     const images = [
-   "UBooksPhotos/UJava.jpeg" ,
-   "UBooksPhotos/UWeb.png" ,
    "UBooksPhotos/UMobileApplication.png" ,
+   "UBooksPhotos/UJava.jpeg" ,
    "UBooksPhotos/UMachineLearning.png" ,
+   "UBooksPhotos/UWeb.png" ,
+   "UBooksPhotos/USoft.png" , 
    "UBooksPhotos/UDigitalLogic.png" ,
-   "UBooksPhotos/UPython.png" ,
    "UBooksPhotos/UCpp.png" ,
-   "UBooksPhotos/USoft.png"
+   "UBooksPhotos/UPython.png" 
     ];
     
-    const descriptions = [
-        "This book provides a comprehensive introduction to Java programming, starting with fundamentals to Object-Oriented Programming (OOP) to Data Structures and Algorithms. Designed for university's students , it simplifies complex concepts and offers a solid foundation for academic success and software development" ,
-        "empty 2" ,
-        "empty 3" ,
-        "empty 4" ,
-        "empty 5" ,
-        "empty 6" ,
-        "empty 7" ,
-        "empty 8" ,
-        "empty 9"
-    ];
+   const descriptions = [
+    "This book introduces Mobile Application Development, starting with the fundamentals of Dart programming, then moving to Flutter for building modern mobile interfaces, and finally covering backend development using PHP to create complete applications.",
+
+    "This book provides a comprehensive introduction to Java programming, starting with fundamentals to Object-Oriented Programming (OOP), Data Structures and Algorithms. Designed for university students, it simplifies complex concepts and offers a solid foundation for academic success and software development.",
+
+    "This book covers Artificial Intelligence and Machine Learning concepts, including important algorithms such as K-Nearest Neighbors (KNN), probability concepts, data analysis using Pandas, visualization using Matplotlib, and practical machine learning techniques.",
+
+    "This book introduces Web Development technologies, covering HTML, CSS, JavaScript, ReactJS, NodeJS, PHP, and Git & GitHub. It provides the essential knowledge required to build modern and interactive web applications.",
+
+    "This book explains Software Engineering concepts, including Data Flow Diagrams (DFD), Process Modeling, Use Case Diagrams, Database System Architecture, and important principles used in software analysis and design.",
+
+    "This book introduces Digital Logic concepts, including Boolean Algebra, Logic Gates, Combinational Logic Design, Sequential Logic Design, Number Systems, and Codes used in digital systems.",
+
+    "This book provides an introduction to C++ programming, covering programming fundamentals, Object-Oriented Programming (OOP), Data Structures, and important concepts required for software development.",
+
+    "This book introduces Python programming, covering programming fundamentals, Object-Oriented Programming (OOP), Data Structures, and essential concepts needed for building strong programming skills."
+];
 
     const prices = {
-        "Java" : 18 ,
-        "Web" : 18 ,
-        "Mobile Application" : 18 ,
-        "AI" : 16 ,
-        "Machine Learning" : 16 ,
-        "Digital Logic" : 16 ,
-        "Python"  : 16 ,
+        "Mobile App" : 16 ,
+        "Java" : 16 ,
+        "AI & Machine Learning" : 16 ,
+        "Web" : 16 ,
+        "Software Engineering" : 12 ,
+        "Digital Logic" : 12 ,
         "C++" : 16 ,
-        "C#" : 16
+        "Python" : 16
     };
 
     let current = 0;
@@ -377,7 +382,6 @@
         playClickSound();
         const fullName = document.getElementById("fullName").value;
         const phone = document.getElementById("phoneNumber").value;
-        const email = document.getElementById("email").value;
         const city = document.getElementById("city").value;
         const payWay = document.getElementById("payWay").value;
         const secretCode = document.getElementById("secretCode").value;
@@ -388,15 +392,6 @@
         }
         if(phone.trim() === "") {
             document.getElementById("phoneNumber").style.border = "2px solid red";
-            hasError = true;
-        }
-
-        if(email.trim() === "") {
-            document.getElementById("email").style.border = "2px solid red";
-            hasError = true;
-        }
-        if(email.trim() !== ""  && !document.getElementById("email").checkValidity()) {
-            document.getElementById("email").style.border = "2px solid red";
             hasError = true;
         }
 
@@ -436,10 +431,6 @@
         formData.append(
             "phone" ,
             phone
-        );
-        formData.append(
-            "email" ,
-            email
         );
         formData.append(
             "city" ,
@@ -527,8 +518,14 @@
         playClickSound();
         const book = document.getElementById("bookSelect").value;
         const quantity = parseInt(document.getElementById("quantitySelect").value);
+        const addExercise = document.getElementById("exerciseYes").checked;
         totalItems += quantity;
-        const total = quantity * prices[book];
+        let total = quantity * prices[book];
+        let displayedBook = book;
+        if(addExercise) {
+            total+= quantity*2;
+            displayedBook += " + E";
+        }
         if(!deliveryAdded) {
             totalRevenue+=3;
             deliveryAdded = true;
@@ -560,7 +557,7 @@
         document.getElementById("totalRevenue").textContent = displayedRevenue.toFixed(2);
         const table = document.getElementById("ordersTable");
         const row = table.insertRow();
-        row.insertCell(0).textContent = book;
+        row.insertCell(0).textContent = displayedBook;
         row.insertCell(1).textContent = quantity;
         row.insertCell(2).textContent = "$" + total.toFixed(2);
     }
@@ -604,9 +601,6 @@
    document.getElementById("phoneNumber").addEventListener("input" , function() {
     this.style.border = "";
    });
-   document.getElementById("email").addEventListener("input" , function() {
-    this.style.border = "";
-   })
 
    function deleteOrder() {
     playClickSound();
@@ -614,10 +608,18 @@
     if(table.rows.length <= 1) 
       return;
     const lastRow = table.rows[table.rows.length - 1];
-   const book = lastRow.cells[0].textContent ;
+   let book = lastRow.cells[0].textContent ;
+   let hasExercise = false;
+   if(book.includes("+ E")) {
+    hasExercise = true;
+    book = book.replace(" + E" , "");
+   }
    const quantity = parseInt(lastRow.cells[1].textContent);
    totalItems -= quantity;
-   const total = quantity*prices[book];
+   let total = quantity*prices[book];
+   if(hasExercise) {
+    total += quantity*2;
+   }
     table.deleteRow(table.rows.length - 1);
     totalOrders--;
     totalRevenue -= total;
