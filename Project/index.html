@@ -69,7 +69,7 @@
             line-height: 1.7;
         }
 
-        #showFormBtn {
+        #showFormBtn , #aboutBtn {
             padding: 15px 30px;
             font-size: 10px;
             font-weight: bold;
@@ -81,6 +81,10 @@
             display: block; 
             margin-left: 0;
 
+        }
+
+        #aboutBtn {
+            padding: 15px 40px;
         }
 
         #bookForm {
@@ -234,7 +238,11 @@
             <h1>My University's Books</h1>
         </div>
          <p id = "intro-text">These books were designed for university students who seek knowledge and understanding in a simple and efficient manner, allowing them to learn quickly with minimal complexity.</p>
-         <button id="showFormBtn" onclick = "toggleForm()">Request</button>
+        <div class="button-row">
+            <button id="showFormBtn" onclick = "toggleForm()">Request</button>
+            <button id="aboutBtn" onclick="openAbout()">About Us</button>
+        </div>
+         
          <div class="forms-container">
          <div id="bookForm" style="display:none;">
         <label>Full Name:</label><br>
@@ -296,6 +304,7 @@
         <select id="payWay">
             <option>Whish Money</option>
             <option>OMT Pay</option>
+            <option>BoB Finance</option>
         </select>
         <br><br>
         <button id="addOrderBtn" onclick="addOrder()">Add Order</button> <button id = "guideBtn" onclick = "openGuide()">Guide</button>
@@ -493,6 +502,9 @@
             else if(payWay === "OMT Pay") {
                 window.open("https://www.omt.com.lb/en/omt-pay" , "_blank");
             }
+            else if(payWay === "BoB Finance") {
+                window.open("https://www.bob-finance.com/" , "_blank")
+            }
         }
              
        else 
@@ -514,6 +526,11 @@
         window.open("Guide.html" , "_blank");
     }
 
+
+    function openAbout() {
+        playClickSound();
+        window.open( "https://mypersonalmainpage5600.jammoul26se.workers.dev/" , "_blank");
+    }
     function addOrder() {
         playClickSound();
         const book = document.getElementById("bookSelect").value;
