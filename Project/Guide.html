@@ -62,6 +62,67 @@
             font-weight: bold;
             margin-bottom: 10px;
         }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 100%;
+        }
+        .top-buttons {
+            display: flex;
+            gap:10px;
+        }
+        .top-buttons button {
+            padding: 15px 30px;
+            font-size: 10px;
+            font-weight: bold;
+            background-color: #42082c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #optionsModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .options-box {
+            background: black;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        .options-box h2{
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .options-box button , .options-box select {
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px;
+            background-color: #42082c;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        #languageSelect {
+            background: gold;
+            color: black;
+            text-align-last: center;
+        }
+        #closeOptionsBtn {
+            background: gray;
+            width:90px;
+        }
         @media (max-width: 768px) {
             body {
                 zoom:0.9;
@@ -88,48 +149,62 @@
         </style>
     </head>
     <body>
-        <div class="section-title">
+        <div class="top-bar">
+             <div class="section-title" id="requestTitle">
                 How to Request ?
         </div>
+        <div class="top-buttons">
+            <button id="returnBtn" onclick="returnToOrderPage()">Return to Order Page</button>
+            <button id="optionsBtn" onclick="playClickSound(); openOptions()">Options</button>
+        </div>
+        </div>
+       
              <br><br>
         <ol>
-            <li>
+            <li id="step1">
                 Click the <b>Request</b> button and fill
                 in the required information (Full Name , Phone Number , etc..). If you hava
                 a <b>Secret Code</b>enter it to receive a special discount.
             </li>
             <br>
-            <li>
+            <li id="step2">
                 Click the <b>Add Books</b> button and complete
                 your order by selecting the book type and quantity .You may use the <b>delete</b> button
                 to remove the last added item if you change your mind about a book or quantity.
             </li>
             <br><br>
-                Please note:
+               <span id="noteTitle">Please note:</span> 
                 <ul>
-                    <li>If you order one book , a <b>3$ delivery fee</b> will be added</li>
-                    <li>If you order two books , delivery is <b>free</b> </li>
-                    <li>If you order three books or more , delivery is <b>free</b> and a <b>5% discount</b> will applied to the entire order.</li>
-                    <li>If you select<b>Add Exercises = Yes</b>, an additional<b>2$ fee per book</b>will be added.</li>
-                    <li>After completing the order and payment, <b>books cannot be returned or exchanges</b></li>
-                    <li>Publishing , sharing , or distributing these books online is <b>strictly prohibited</b> due to <b>copyright &copy; and intellectual property rights</b>.</li>
+                    <li id="note1">If you order one book , a <b>3$ delivery fee</b> will be added</li>
+                    <li id="note2">If you order two books , delivery is <b>free</b> </li>
+                    <li id="note3">If you order three books or more , delivery is <b>free</b> and a <b>5% discount</b> will applied to the entire order.</li>
+                    <li id="note4">If you select<b>Add Exercises = Yes</b>, an additional<b>2$ fee per book</b>will be added.</li>
+                    <li id="note5">After completing the order and payment, <b>books cannot be returned or exchanges</b></li>
+                    <li id="note6">Publishing , sharing , or distributing these books online is <b>strictly prohibited</b> due to <b>copyright &copy; and intellectual property rights</b>.</li>
                 </ul>
                     <br>
-                    <li>
+                    <li><span id="paymentInfo">
                         When you finished your order , click the <b>Submit</b> button . You will be redirected directly to the paument application.
-                    
+                    </span>
                     <br><br>
-                My payment number is <b>+961 76 125 354</b>
+                    <span id="paymentNumber">
+                        My payment number is <b>+961 76 125 354</b>
+                    </span>
                 <br><br>
-                Please transfer the exact amount displeyed on your screen 
+                <span id="transfer">
+                    Please transfer the exact amount displeyed on your screen 
+                </span>
                 <br><br>
-                After payment is completed , your order will be processed and delivered within a few days .One day before delivery, the delivery driver will contact you to arrange the exact time and location
+                <span id="deliveryInfo">
+                    After payment is completed , your order will be processed and delivered within a few days .One day before delivery, the delivery driver will contact you to arrange the exact time and location
+                </span>
                 <br><br>
-                If you have any questions or need assistance , you may contact me directly through <b>WhatsApp only</b> using the same number listed above    
-            
+                <span id="contactInfo">
+                   If you have any questions or need assistance , you may contact me directly through <b>WhatsApp only</b> using the same number listed above
+                </span>
         </li>
         </ol>
-        <div class = "section-title">
+        <div class = "section-title" id="booksPrices">
             Books Prices
         </div>
         
@@ -180,8 +255,192 @@
                 <td>97 pages</td>
             </tr>
         </table>
+        <div id="optionsModal">
+            <div class="options-box">
+                <h2>Options</h2>
+                <select id="languageSelect" onchange="playClickSound(); changeLanguage(this.value)">
+                    <option selected disabled>Languages</option>
+                    <option>English</option>
+                    <option>Français</option>
+                    <option>Español</option>
+                    <option>Русский</option>
+                    <option>العربية</option>
+                </select>
+                <button id="closeOptionsBtn" onclick="playClickSound(); closeOptions()">Close</button>
+            </div>
+        </div>
     <script>
-
+     const clickSound = new Audio("ClickSoundTrackBooks.mp4");
+     const translations = {
+    English: {
+        requestTitle: "How to Request ?",
+        step1: "Click the Request button and fill in the required information (Full Name, Phone Number, etc..). If you have a Secret Code enter it to receive a special discount.",
+        step2: "Click the Add Books button and complete your order by selecting the book type and quantity. You may use the delete button to remove the last added item if you change your mind about a book or quantity." ,
+        noteTitle: "Please note:",
+        note1: "If you order one book, a 3$ delivery fee will be added",
+        note2: "If you order two books, delivery is free",
+        note3: "If you order three books or more, delivery is free and a 5% discount will be applied to the entire order.",
+        note4: "If you select Add Exercises = Yes, an additional 2$ fee per book will be added.",
+        note5: "After completing the order and payment, books cannot be returned or exchanged",
+        note6: "Publishing, sharing, or distributing these books online is strictly prohibited due to copyright © and intellectual property rights.",
+        paymentInfo: "When you finished your order, click the Submit button. You will be redirected directly to the payment application.",
+        paymentNumber: "My payment number is +961 76 125 354",
+        transfer: "Please transfer the exact amount displayed on your screen",
+        deliveryInfo: "After payment is completed, your order will be processed and delivered within a few days. One day before delivery, the delivery driver will contact you to arrange the exact time and location.",
+        contactInfo: "If you have any questions or need assistance, you may contact me directly through WhatsApp only using the same number listed above",
+        booksPrices: "Books Prices" ,
+        returnPage: "Return to Order Page",
+        optionsTitle: "Options",
+        close: "Close",
+        bookHeader: "Book",
+        priceHeader: "Price",
+        pagesHeader: "Nb of Pages",
+        pages: "pages"
+    },
+    Français: {
+        requestTitle: "Comment demander ?",
+        step1: "Cliquez sur le bouton Request et remplissez les informations requises (Nom complet, numéro de téléphone, etc.). Si vous avez un code secret, entrez-le pour recevoir une remise spéciale.",
+        step2: "Cliquez sur le bouton Add Books et complétez votre commande en sélectionnant le type de livre et la quantité. Vous pouvez utiliser le bouton Delete pour supprimer le dernier élément ajouté." , 
+        noteTitle: "Veuillez noter :",
+        note1: "Si vous commandez un livre, des frais de livraison de 3$ seront ajoutés",
+        note2: "Si vous commandez deux livres, la livraison est gratuite",
+        note3: "Si vous commandez trois livres ou plus, la livraison est gratuite et une remise de 5% sera appliquée à toute la commande.",
+        note4: "Si vous sélectionnez Ajouter des exercices = Oui, un supplément de 2$ par livre sera ajouté.",
+        note5: "Après avoir terminé la commande et le paiement, les livres ne peuvent pas être retournés ou échangés",
+        note6: "La publication, le partage ou la distribution de ces livres en ligne sont strictement interdits en raison des droits d'auteur © et de la propriété intellectuelle.",
+        paymentInfo: "Lorsque vous avez terminé votre commande, cliquez sur le bouton Submit. Vous serez directement redirigé vers l'application de paiement.",
+        paymentNumber: "Mon numéro de paiement est +961 76 125 354",
+        transfer: "Veuillez transférer le montant exact affiché sur votre écran",
+        deliveryInfo: "Après le paiement, votre commande sera traitée et livrée dans quelques jours. Un jour avant la livraison, le livreur vous contactera pour organiser l'heure et le lieu exacts.",
+        contactInfo: "Si vous avez des questions ou besoin d'aide, vous pouvez me contacter directement uniquement via WhatsApp en utilisant le même numéro indiqué ci-dessus",
+        booksPrices: "Prix des livres" ,
+       returnPage: "Retour à la page de commande",
+       optionsTitle: "Options",
+       close: "Fermer",
+       bookHeader: "Livre",
+       priceHeader: "Prix",
+       pagesHeader: "Nombre de pages",
+       pages: "pages"
+    },
+    Español: {
+        requestTitle: "¿Cómo solicitar?",
+        step1: "Haga clic en el botón Request y complete la información requerida (nombre completo, número de teléfono, etc.). Si tiene un código secreto, introdúzcalo para recibir un descuento especial.",
+        step2: "Haga clic en el botón Add Books y complete su pedido seleccionando el tipo de libro y la cantidad. Puede usar el botón Delete para eliminar el último elemento añadido." ,
+        noteTitle: "Tenga en cuenta:",
+        note1: "Si solicita un libro, se añadirá una tarifa de entrega de 3$",
+        note2: "Si solicita dos libros, la entrega es gratuita",
+        note3: "Si solicita tres libros o más, la entrega es gratuita y se aplicará un descuento del 5% al pedido completo.",
+        note4: "Si selecciona Agregar ejercicios = Sí, se añadirá un cargo adicional de 2$ por libro.",
+        note5: "Después de completar el pedido y el pago, los libros no pueden ser devueltos ni cambiados",
+        note6: "Está estrictamente prohibido publicar, compartir o distribuir estos libros en línea debido a los derechos de autor © y la propiedad intelectual.",
+        paymentInfo: "Cuando termine su pedido, haga clic en el botón Submit. Será redirigido directamente a la aplicación de pago.",
+        paymentNumber: "Mi número de pago es +961 76 125 354",
+        transfer: "Transfiera el importe exacto mostrado en su pantalla",
+        deliveryInfo: "Después de completar el pago, su pedido será procesado y entregado en unos días. Un día antes de la entrega, el repartidor se pondrá en contacto con usted para organizar la hora y ubicación exactas.",
+        contactInfo: "Si tiene preguntas o necesita ayuda, puede contactarme directamente solo por WhatsApp utilizando el mismo número indicado arriba",
+        booksPrices: "Precios de los libros" ,
+        returnPage: "Volver a la página de pedidos",
+        optionsTitle: "Opciones",
+        close: "Cerrar",
+        bookHeader: "Libro",
+        priceHeader: "Precio",
+        pagesHeader: "Número de páginas",
+        pages: "páginas"
+      },
+    Русский: {
+        requestTitle: "Как заказать?",
+        step1: "Нажмите кнопку Request и заполните необходимую информацию (полное имя, номер телефона и т.д.). Если у вас есть секретный код, введите его для получения специальной скидки.",
+        step2: "Нажмите кнопку Add Books и завершите заказ, выбрав тип книги и количество. Вы можете использовать кнопку Delete для удаления последнего добавленного элемента." ,
+        noteTitle: "Обратите внимание:",
+        note1: "Если вы заказываете одну книгу, будет добавлена плата за доставку 3$",
+        note2: "Если вы заказываете две книги, доставка бесплатная",
+        note3: "Если вы заказываете три книги или больше, доставка бесплатная и применяется скидка 5% на весь заказ.",
+        note4: "Если вы выбираете Добавить упражнения = Да, будет добавлена дополнительная плата 2$ за книгу.",
+        note5: "После завершения заказа и оплаты книги нельзя вернуть или обменять",
+        note6: "Публикация, распространение или обмен этими книгами в интернете строго запрещены из-за авторских прав © и интеллектуальной собственности.",
+        paymentInfo: "После завершения заказа нажмите кнопку Submit. Вы будете автоматически перенаправлены в приложение для оплаты.",
+        paymentNumber: "Мой номер оплаты: +961 76 125 354",
+        transfer: "Пожалуйста, переведите точную сумму, указанную на экране",
+        deliveryInfo: "После завершения оплаты ваш заказ будет обработан и доставлен в течение нескольких дней. За день до доставки курьер свяжется с вами для уточнения времени и места.",
+        contactInfo: "Если у вас есть вопросы или вам нужна помощь, вы можете связаться со мной напрямую только через WhatsApp, используя тот же номер, указанный выше",
+        booksPrices: "Цены на книги" ,
+        returnPage: "Вернуться на страницу заказа",
+        optionsTitle: "Настройки",
+        close: "Закрыть",
+        bookHeader: "Книга",
+        priceHeader: "Цена",
+        pagesHeader: "Количество страниц",
+        pages: "страниц"
+    },
+    العربية: {
+        requestTitle: "كيفية الطلب ؟",
+        step1: "اضغط على زر Request واملأ المعلومات المطلوبة (الاسم الكامل، رقم الهاتف، إلخ..). إذا كان لديك رمز سري أدخله للحصول على خصم خاص.",
+        step2: "اضغط على زر Add Books وأكمل طلبك باختيار نوع الكتاب والكمية. يمكنك استخدام زر Delete لحذف آخر عنصر تمت إضافته إذا غيرت رأيك." ,
+        noteTitle: "يرجى الملاحظة:",
+        note1: "إذا طلبت كتابًا واحدًا، سيتم إضافة رسوم توصيل بقيمة 3$",
+        note2: "إذا طلبت كتابين، يكون التوصيل مجانيًا",
+        note3: "إذا طلبت ثلاثة كتب أو أكثر، يكون التوصيل مجانيًا وسيتم تطبيق خصم 5% على كامل الطلب.",
+        note4: "إذا اخترت إضافة تمارين = نعم، سيتم إضافة رسوم إضافية بقيمة 2$ لكل كتاب.",
+        note5: "بعد إتمام الطلب والدفع، لا يمكن إرجاع الكتب أو استبدالها",
+        note6: "يُمنع منعًا باتًا نشر أو مشاركة أو توزيع هذه الكتب عبر الإنترنت بسبب حقوق الطبع والنشر © والملكية الفكرية.",
+        paymentInfo: "عند الانتهاء من طلبك، اضغط على زر Submit. سيتم تحويلك مباشرة إلى تطبيق الدفع.",
+        paymentNumber: "رقم الدفع الخاص بي هو +961 76 125 354",
+        transfer: "يرجى تحويل المبلغ الدقيق الظاهر على الشاشة",
+        deliveryInfo: "بعد إتمام الدفع، سيتم معالجة طلبك وتوصيله خلال بضعة أيام. قبل يوم واحد من التوصيل، سيتواصل معك سائق التوصيل لترتيب الوقت والمكان المناسبين.",
+        contactInfo: "إذا كان لديك أي سؤال أو تحتاج إلى مساعدة، يمكنك التواصل معي مباشرة عبر WhatsApp فقط باستخدام نفس الرقم المذكور أعلاه",
+        booksPrices: "أسعار الكتب" ,
+        returnPage: "العودة إلى صفحة الطلب",
+        optionsTitle: "الإعدادات",
+        close: "إغلاق",
+        bookHeader: "الكتاب",
+        priceHeader: "السعر",
+        pagesHeader: "عدد الصفحات",
+        pages: "صفحة"
+    }
+};
+     function playClickSound() {
+        clickSound.currentTime =0;
+        clickSound.play();
+     }
+     function openOptions() {
+        document.getElementById("optionsModal").style.display = "flex";
+     }
+     function closeOptions() {
+        document.getElementById("optionsModal").style.display = "none";
+     }
+     function returnToOrderPage() {
+        playClickSound();
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 300);
+     }
+     function changeLanguage(lang) {
+        const t = translations[lang];
+        document.getElementById("requestTitle").textContent = t.requestTitle;
+        document.getElementById("step1").textContent = t.step1;
+        document.getElementById("step2").textContent = t.step2;
+        document.getElementById("noteTitle").textContent = t.noteTitle;
+        document.getElementById("note1").textContent = t.note1;
+        document.getElementById("note2").textContent = t.note2;
+        document.getElementById("note3").textContent = t.note3;
+        document.getElementById("note4").textContent = t.note4;
+        document.getElementById("note5").textContent = t.note5;
+        document.getElementById("note6").textContent = t.note6;
+        document.getElementById("paymentInfo").innerHTML = t.paymentInfo;
+        document.getElementById("paymentNumber").innerHTML = t.paymentNumber;
+        document.getElementById("transfer").textContent = t.transfer;
+        document.getElementById("deliveryInfo").textContent = t.deliveryInfo;
+        document.getElementById("contactInfo").innerHTML = t.contactInfo;
+        document.getElementById("booksPrices").textContent = t.booksPrices;
+        document.getElementById("returnBtn").textContent = t.returnPage;
+        document.getElementById("optionsBtn").textContent = t.optionsTitle;
+        document.getElementById("optionsTitle").textContent = t.optionsTitle;
+        document.getElementById("closeOptionsBtn").textContent = t.close;
+        document.getElementById("bookHeader").textContent = t.bookHeader;
+        document.getElementById("priceHeader").textContent = t.priceHeader;
+        document.getElementById("pagesHeader").textContent = t.pagesHeader;
+        document.querySelectorAll(".pageText").forEach(p => { p.textContent = t.pages});
+     }
     </script>
     </body>
 </html>
