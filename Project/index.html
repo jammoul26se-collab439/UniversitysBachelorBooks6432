@@ -10,7 +10,6 @@
             align-items: flex-start;
             gap: 25px;
         }
-
         body {
         zoom: 0.85;
         font-family : Arial , sans-serif ;
@@ -23,7 +22,6 @@
         margin: 0;
         padding: 0;
         }
-
         .carousel {
             position: relative;
             width: 550px;
@@ -31,23 +29,17 @@
             margin-right: 0px;
             margin-top: 100px;     
         }
-
         .carousel img {
             width: 100%;
             height: 420px;
             object-fit : contain;
         }
-
-       
-
         .prev {
             left: 10px;
         }
-
         .next {
             right: 10px;
         }
-
         #description {
             margin-top: 15px;
             white-space: pre-wrap;
@@ -55,27 +47,23 @@
             font-size: 16px;
             text-align: left;
         }
-
         .left-content {
             position: absolute;
             top: 20px;
             left: 20px;
             width: 60%;
         }
-
         #intro-text {
             font-family: Georgia , "Times New Roman" , serif;
             font-size: 18px;
             line-height: 1.7;
         }
-
         .button-row {
             display: flex;
             gap: 10px;
             align-items: center;
             margin-top: 10px;
         }
-
         #showFormBtn , #aboutBtn {
             padding: 15px 30px;
             font-size: 10px;
@@ -86,11 +74,9 @@
             border-radius: 8px;
             cursor: pointer;
         }
-
         #aboutBtn {
             padding: 15px 40px;
         }
-
         #bookForm {
             margin-top: 20px;
             padding: 15px;
@@ -99,7 +85,6 @@
             border: 1px solid #ccc;
             border-radius: 8px;
         }
-
         #bookForm input,
         #bookForm select {
             width: 90%;
@@ -107,7 +92,6 @@
             font-size: 14px;
             border-radius: 5px;
         }
-
         #addBooksBtn {
             padding: 10px 15px;
             background-color: #42082c;
@@ -115,23 +99,20 @@
             border: none;
             border-radius: 6px;
         }
-
         .forms-container {
             display: flex;
             gap: 20px;
             align-items: flex-start;
         }
-
         #orderBox {
             display: none;
-            margin-top: -35px;
+            margin-top: 15px;
             padding: 15px;
             width:500px;
             background-color: rgba(255,255,255,0.1);
             border: 1px solid #ccc;
             border-radius: 8px;
         }
-
         #orderBox select {
             width:90%;
             padding: 5px;
@@ -149,7 +130,6 @@
             border-radius: 6px;
             cursor:pointer;
         }
-
         #titleBar {
             background-color: #42082c;
             width: 100%;
@@ -158,20 +138,89 @@
             top: 0;
             left: 0;
         }
-
         #titleBar h1 {
             margin:0;
             color: white;
         }
-
-
         #submitContainer {
             display: flex;
             align-items: center;
             gap: 10px;
         }
-
-        
+        #optionsBtn {
+            padding: 15px 30px;
+            font-size: 10px;
+            font-weight: bold;
+            background-color: #42082c;
+            color:white;
+            border:none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #optionsModal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0 , 0 , 0 , 0.6);
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+        }
+        .options-box {
+            background: black;
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            width: 300px;
+            text-align: center;
+        }
+        .options-box h2 {
+            margin-top: 0;
+            margin-bottom: 20px;
+        }
+        .options-box button {
+            width: 100%;
+            margin: 8px 0;
+            padding: 12px;
+            background-color: #42082c;
+            color:white;
+            border:none;
+            border-radius: 8px;
+            cursor: pointer;
+        }
+        #soundBtn {
+            background: green;
+        }
+        #languageBtn {
+            background: gold;
+            color: black;
+        }
+        #closeOptionsBtn {
+            background: gray;
+            width: 90px;
+            padding: 8px;
+            margin-top: 20px;
+        }
+        .language-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            gap: 10px;
+            margin-top: 10px;
+        }
+        #languageSelect {
+            width: 100%;
+            margin:8px 0;
+            padding: 12px;
+            background: gold;
+            color: white;
+            border: none;
+            border-radius: 8px;
+            font-size: 14px;
+            cursor: pointer;
+            box-sizing: border-box;
+            text-align-last : center;
+        }
         @media(max-width: 768px) {
             body {
                 zoom: 0.9;
@@ -184,7 +233,6 @@
                 top: auto;
                 left: auto;
             }
-
             .forms-container {
                 flex-direction: column;
                 gap:15px;
@@ -224,7 +272,6 @@
             #titleBar h1 {
                 font-size: 32px;
             }
-
             #intro-text {
                 font-size: 15px
             }
@@ -233,7 +280,6 @@
                 margin-top: 25px;
             }
         }
-
     </style>
 </head>
 <body>
@@ -244,16 +290,16 @@
          <p id = "intro-text">These books were designed for university students who seek knowledge and understanding in a simple and efficient manner, allowing them to learn quickly with minimal complexity.</p>
         <div class="button-row">
             <button id="showFormBtn" onclick = "toggleForm()">Request</button>
+            <button id="optionsBtn" onclick="openOptions()">Options</button>
             <button id="aboutBtn" onclick="openAbout()">About Us</button>
         </div>
-         
          <div class="forms-container">
          <div id="bookForm" style="display:none;">
-        <label>Full Name:</label><br>
+        <label id = "fullNameLabel">Full Name:</label><br>
         <input type="text" id="fullName" maxlength="25" oninput="this.value=this.value.replace(/[^a-zA-Z ]/g,'')"><br><br>
-        <label>Phone Number:</label><br>
+        <label id="phoneLabel">Phone Number:</label><br>
         <input type = "text" id="phoneNumber" maxlength="8" oninput="this.value=this.value.replace(/[^0-9]/g,'')"><br><br>
-        <label>City:</label><br>
+        <label id="cityLabel">City:</label><br>
         <select id="city">
             <option>Nabatieh</option>
             <option>Marjeyoun</option>
@@ -269,14 +315,14 @@
             <option>Mount Lebanon</option>
             <option>Bekaa</option>
         </select> <br> <br>
-        <label>Secret Code (Bonus) </label> <br>
+        <label id="secretCodeLabel">Secret Code (Bonus) </label> <br>
         <input type = "text" id = "secretCode" maxlength = "20" oninput="this.value=this.value.replace(/[^0-9]/g,'')"><br><br>
         <button id="addBooksBtn" onclick="showOrderBox()">
             Add Books
         </button>
     </div>
     <div id="orderBox" style="display:none;">
-        <label>Book Name:</label><br>
+        <label id="bookNameLabel">Book Name:</label><br>
         <select id = "bookSelect">
             <option>Mobile App</option>
             <option>Java</option>
@@ -287,7 +333,7 @@
             <option>C++</option>
             <option>Python</option>    
         </select> <br><br>
-        <label>Number of Items:</label><br>
+        <label id="quantityLabel">Number of Items:</label><br>
         <select id="quantitySelect">
             <option>1</option>
             <option>2</option>
@@ -300,11 +346,11 @@
             <option>9</option>
         </select>
         <br><br>
-        <label>Add Exercises?</label><br>
-        <label><input type="radio" name="exercise" value="Yes" id="exerciseYes">Yes</label>
-        <label><input type="radio" name="exercise" value="No" id="exerciseNo">No</label>
+        <label id="exerciseLabel">Add Exercises?</label><br>
+        <label><input type="radio" name="exercise" value="Yes" id="exerciseYes"><span id="yesLabel">Yes</span></label>
+        <label><input type="radio" name="exercise" value="No" id="exerciseNo"><span id="noLabel">No</span></label>
         <br><br>
-        <label>Pay Way:</label>
+        <label id="payWayLabel">Pay Way:</label>
         <select id="payWay">
             <option>Whish Money</option>
             <option>OMT Pay</option>
@@ -314,15 +360,15 @@
         <button id="addOrderBtn" onclick="addOrder()">Add Order</button> <button id = "guideBtn" onclick = "openGuide()">Guide</button>
         <button id="deleteBtn" onclick = "deleteOrder()" style ="display:none;">Delete</button>
         <hr>
-        <h3>Total Orders: <span id="totalOrders">0</span> | Total Revenue: $<span id="totalRevenue">0.00</span> </h3>
+        <h3 id="summaryText">Total Orders: <span id="totalOrders">0</span> | Total Revenue: $<span id="totalRevenue">0.00</span> </h3>
         <p id="deliveryText" style="color:red; display:none;">3$ Delivery Required</p>
         <p id="freeDeliveryText" style="color:lime; display:none;">Free Delivery</p>
         <p id="discountText" style="color:gold; display:none;">5% Discount Applied</p> 
         <table border ="1" id="ordersTable">
             <tr>
-                <th>Book Name</th>
-                <th>Number of Items</th>
-                <th>Total</th>
+                <th id="bookHeader">Book Name</th>
+                <th id="itemsHeader">Number of Items</th>
+                <th id="totalHeader">Total</th>
             </tr>
         </table>
         <br> <p id="orderError" style="color:red; display:none;">Please add at least one book</p>
@@ -341,6 +387,23 @@
         <pre id = "description">This book introduces Mobile Application Development, starting with the fundamentals of Dart programming, then moving to Flutter for building modern mobile interfaces, and finally covering backend development using PHP to create complete applications.</pre>
    </div>
    </div>
+   <div id="optionsModal">
+    <div class="options-box">
+        <h2 id = "optionsTitle">Options</h2>
+        <button id="soundBtn" onclick="toggleSound()">Sound : Not Muted</button>
+        <div class="language-container">
+    <select id="languageSelect" onchange = "changeLanguage(this.value)">
+     <option id="languageTitle" selected disabled>Languages</option>
+     <option>English</option>
+     <option>Français</option>
+     <option>Español</option>
+     <option>Русский</option>
+     <option>العربية</option>
+</select>
+</div>
+        <button id="closeOptionsBtn" onclick="closeOptions()">Close</button>
+    </div>
+   </div>
     <script>
     let discountApplied = false;
     let totalOrders = 0;
@@ -348,7 +411,8 @@
     let totalRevenue = 0;
     let deliveryAdded = false;
     const clickSound = new Audio("ClickSoundTrackBooks.mp4");
-
+    let muted = false;
+    let currentLanguage = "English";
     const images = [
    "UBooksPhotos/UMobileApplication.png" ,
    "UBooksPhotos/UJava.jpeg" ,
@@ -359,25 +423,238 @@
    "UBooksPhotos/UCpp.png" ,
    "UBooksPhotos/UPython.png" 
     ];
-    
    const descriptions = [
     "This book introduces Mobile Application Development, starting with the fundamentals of Dart programming, then moving to Flutter for building modern mobile interfaces, and finally covering backend development using PHP to create complete applications.",
-
     "This book provides a comprehensive introduction to Java programming, starting with fundamentals to Object-Oriented Programming (OOP), Data Structures and Algorithms. Designed for university students, it simplifies complex concepts and offers a solid foundation for academic success and software development.",
-
     "This book covers Artificial Intelligence and Machine Learning concepts, including important algorithms such as K-Nearest Neighbors (KNN), probability concepts, data analysis using Pandas, visualization using Matplotlib, and practical machine learning techniques.",
-
     "This book introduces Web Development technologies, covering HTML, CSS, JavaScript, ReactJS, NodeJS, PHP, and Git & GitHub. It provides the essential knowledge required to build modern and interactive web applications.",
-
     "This book explains Software Engineering concepts, including Data Flow Diagrams (DFD), Process Modeling, Use Case Diagrams, Database System Architecture, and important principles used in software analysis and design.",
-
     "This book introduces Digital Logic concepts, including Boolean Algebra, Logic Gates, Combinational Logic Design, Sequential Logic Design, Number Systems, and Codes used in digital systems.",
-
     "This book provides an introduction to C++ programming, covering programming fundamentals, Object-Oriented Programming (OOP), Data Structures, and important concepts required for software development.",
-
     "This book introduces Python programming, covering programming fundamentals, Object-Oriented Programming (OOP), Data Structures, and essential concepts needed for building strong programming skills."
 ];
-
+    const translations = {
+  English: {
+    request: "Request",
+    about: "About Us",
+    options: "Options",
+    soundMuted: "Sound : Muted",
+    soundNotMuted: "Sound : Not Muted",
+    languages: "Languages",
+    close: "Close",
+    fullName: "Full Name:",
+    phoneNumber: "Phone Number:",
+    city: "City:",
+    secretCode: "Secret Code (Bonus)",
+    addBooks: "Add Books",
+    bookName: "Book Name:",
+    numberOfItems: "Number of Items:",
+    addExercises: "Add Exercises?",
+    yes: "Yes",
+    no: "No",
+    payWay: "Pay Way:",
+    addOrder: "Add Order",
+    guide: "Guide",
+    submit: "Submit",
+    totalOrders: "Total Orders:",
+    totalRevenue: "Total Revenue:",
+    tableBook: "Book Name",
+    tableItems: "Number of Items",
+    tableTotal: "Total",
+    delivery: "3$ Delivery Required",
+    phone: "My Phone Number:",
+    freeDelivery: "Free Delivery",
+    discount: "5% Discount Applied",
+    descriptions: [
+  "This book introduces Mobile Application Development, starting with the fundamentals of the Dart programming language, then moving to Flutter for building modern mobile user interfaces, and finally covering backend development using PHP to create complete and fully functional mobile applications.",
+  "This book provides a comprehensive introduction to Java programming. It covers the fundamentals of the language, Object-Oriented Programming (OOP), Data Structures, and Algorithms. Designed for university students, it simplifies complex concepts while providing a strong foundation for academic success and professional software development.",
+  "This book covers the concepts of Artificial Intelligence and Machine Learning. It includes important algorithms such as K-Nearest Neighbors (KNN), probability concepts, data analysis using Pandas, data visualization with Matplotlib, and practical machine learning techniques used in real-world applications.",
+  "This book introduces Web Development technologies, including HTML, CSS, JavaScript, ReactJS, NodeJS, PHP, and Git & GitHub. It provides the essential knowledge and practical skills required to build modern, responsive, and interactive web applications.",
+  "This book explains the principles of Software Engineering, including Data Flow Diagrams (DFD), Process Modeling, Use Case Diagrams, Database System Architecture, and the essential concepts used in software analysis, design, and development.",
+  "This book introduces the concepts of Digital Logic, including Boolean Algebra, Logic Gates, Combinational Logic Design, Sequential Logic Design, Number Systems, and the coding techniques used in digital systems.",
+  "This book provides an introduction to C++ programming. It covers programming fundamentals, Object-Oriented Programming (OOP), Data Structures, and the essential concepts required for developing efficient and reliable software applications.",
+  "This book introduces Python programming. It covers the fundamentals of the language, Object-Oriented Programming (OOP), Data Structures, and the essential concepts needed to build strong programming skills and develop modern software applications."
+] , 
+  introText: "These books were designed for university students who seek knowledge and understanding in a simple and efficient manner, allowing them to learn quickly with minimal complexity.",
+  delete: "Delete"
+  },
+  Français: {
+    request: "Demande",
+    about: "À propos",
+    options: "Options",
+    soundMuted: "Son : Coupé",
+    soundNotMuted: "Son : Activé",
+    languages: "Langues",
+    close: "Fermer",
+    fullName: "Nom complet :",
+    phoneNumber: "Numéro de téléphone :",
+    city: "Ville :",
+    secretCode: "Code secret (Bonus)",
+    addBooks: "Ajouter des livres",
+    bookName: "Nom du livre :",
+    numberOfItems: "Nombre d'articles :",
+    addExercises: "Ajouter les exercices ?",
+    yes: "Oui",
+    no: "Non",
+    payWay: "Mode de paiement :",
+    addOrder: "Ajouter la commande",
+    guide: "Guide",
+    submit: "Envoyer",
+    totalOrders: "Total des commandes :",
+    totalRevenue: "Revenu total :",
+    tableBook: "Livre",
+    tableItems: "Quantité",
+    tableTotal: "Total",
+    delivery: "Livraison : 3$",
+    phone: "Mon numéro :",
+    freeDelivery: "Livraison gratuite",
+    discount: "Remise de 5% appliquée",
+    descriptions: [
+      "Ce livre présente le développement d'applications mobiles. Il commence par les bases du langage Dart, puis passe à Flutter pour créer des interfaces mobiles modernes, et se termine par le développement backend avec PHP afin de créer des applications complètes.",
+"Ce livre offre une introduction complète à la programmation Java. Il couvre les bases du langage, la programmation orientée objet (POO), les structures de données et les algorithmes. Conçu pour les étudiants universitaires, il simplifie les concepts complexes et fournit une base solide pour la réussite académique et le développement logiciel.",
+"Ce livre couvre les concepts de l'intelligence artificielle et du Machine Learning. Il présente des algorithmes importants tels que K-Nearest Neighbors (KNN), les probabilités, l'analyse de données avec Pandas, la visualisation avec Matplotlib et des techniques pratiques d'apprentissage automatique.",
+"Ce livre présente les technologies du développement Web, notamment HTML, CSS, JavaScript, ReactJS, NodeJS, PHP ainsi que Git et GitHub. Il fournit les connaissances essentielles pour créer des applications Web modernes et interactives.",
+"Ce livre explique les concepts du génie logiciel, notamment les diagrammes de flux de données (DFD), la modélisation des processus, les diagrammes de cas d'utilisation, l'architecture des systèmes de bases de données et les principes fondamentaux de l'analyse et de la conception logicielle.",
+"Ce livre présente les concepts de la logique numérique, notamment l'algèbre de Boole, les portes logiques, les circuits combinatoires, les circuits séquentiels, les systèmes de numération et les codes utilisés dans les systèmes numériques.",
+"Ce livre fournit une introduction à la programmation en C++. Il couvre les bases de la programmation, la programmation orientée objet (POO), les structures de données et les concepts essentiels nécessaires au développement logiciel.",
+"Ce livre présente la programmation Python. Il couvre les bases du langage, la programmation orientée objet (POO), les structures de données et les concepts essentiels pour développer de solides compétences en programmation."
+    ] ,
+    introText: "Ces livres ont été conçus pour les étudiants universitaires qui recherchent la connaissance et la compréhension d'une manière simple et efficace, leur permettant d'apprendre rapidement avec un minimum de complexité.",
+    delete: "Supprimer"
+  },
+  Español: {
+    request: "Solicitar",
+    about: "Acerca de",
+    options: "Opciones",
+    soundMuted: "Sonido: Silenciado",
+    soundNotMuted: "Sonido: Activado",
+    languages: "Idiomas",
+    close: "Cerrar",
+    fullName: "Nombre completo:",
+    phoneNumber: "Número de teléfono:",
+    city: "Ciudad:",
+    secretCode: "Código secreto (Bonus)",
+    addBooks: "Agregar libros",
+    bookName: "Nombre del libro:",
+    numberOfItems: "Cantidad:",
+    addExercises: "¿Agregar ejercicios?",
+    yes: "Sí",
+    no: "No",
+    payWay: "Método de pago:",
+    addOrder: "Agregar pedido",
+    guide: "Guía",
+    submit: "Enviar",
+    totalOrders: "Pedidos totales:",
+    totalRevenue: "Ingresos totales:",
+    tableBook: "Libro",
+    tableItems: "Cantidad",
+    tableTotal: "Total",
+    delivery: "Entrega de 3$",
+    phone: "Mi número:",
+    freeDelivery: "Entrega gratuita",
+    discount: "Descuento del 5% aplicado",
+    descriptions: [
+  "Este libro presenta el desarrollo de aplicaciones móviles. Comienza con los fundamentos del lenguaje Dart, luego pasa a Flutter para crear interfaces móviles modernas y finalmente cubre el desarrollo backend con PHP para construir aplicaciones completas.",
+  "Este libro ofrece una introducción completa a la programación en Java. Cubre los fundamentos del lenguaje, la Programación Orientada a Objetos (POO), las estructuras de datos y los algoritmos. Está diseñado para estudiantes universitarios y simplifica conceptos complejos para proporcionar una base sólida para el éxito académico y el desarrollo de software.",
+  "Este libro cubre los conceptos de Inteligencia Artificial y Aprendizaje Automático. Incluye algoritmos importantes como K-Nearest Neighbors (KNN), conceptos de probabilidad, análisis de datos con Pandas, visualización con Matplotlib y técnicas prácticas de Machine Learning.",
+  "Este libro presenta las tecnologías del desarrollo web, incluyendo HTML, CSS, JavaScript, ReactJS, NodeJS, PHP y Git & GitHub. Proporciona los conocimientos esenciales para crear aplicaciones web modernas e interactivas.",
+  "Este libro explica los conceptos de Ingeniería de Software, incluyendo Diagramas de Flujo de Datos (DFD), Modelado de Procesos, Diagramas de Casos de Uso, Arquitectura de Sistemas de Bases de Datos y principios fundamentales utilizados en el análisis y diseño de software.",
+  "Este libro presenta los conceptos de Lógica Digital, incluyendo Álgebra Booleana, Puertas Lógicas, Diseño de Circuitos Combinacionales, Diseño de Circuitos Secuenciales, Sistemas Numéricos y Códigos utilizados en los sistemas digitales.",
+  "Este libro ofrece una introducción a la programación en C++. Cubre los fundamentos de la programación, la Programación Orientada a Objetos (POO), las estructuras de datos y los conceptos esenciales necesarios para el desarrollo de software.",
+  "Este libro presenta la programación en Python. Cubre los fundamentos del lenguaje, la Programación Orientada a Objetos (POO), las estructuras de datos y los conceptos esenciales necesarios para desarrollar sólidas habilidades de programación."
+] , 
+   introText: "Estos libros fueron diseñados para estudiantes universitarios que buscan conocimiento y comprensión de una manera simple y eficiente, permitiéndoles aprender rápidamente con la mínima complejidad.",
+   delete: "Eliminar"
+  },
+  Русский: {
+    request: "Заказать",
+    about: "О нас",
+    options: "Настройки",
+    soundMuted: "Звук: Выключен",
+    soundNotMuted: "Звук: Включен",
+    languages: "Языки",
+    close: "Закрыть",
+    fullName: "Полное имя:",
+    phoneNumber: "Телефон:",
+    city: "Город:",
+    secretCode: "Секретный код (Бонус)",
+    addBooks: "Добавить книги",
+    bookName: "Название книги:",
+    numberOfItems: "Количество:",
+    addExercises: "Добавить упражнения?",
+    yes: "Да",
+    no: "Нет",
+    payWay: "Способ оплаты:",
+    addOrder: "Добавить заказ",
+    guide: "Руководство",
+    submit: "Отправить",
+    totalOrders: "Всего заказов:",
+    totalRevenue: "Общий доход:",
+    tableBook: "Книга",
+    tableItems: "Количество",
+    tableTotal: "Итого",
+    delivery: "Доставка 3$",
+    phone: "Мой номер:",
+    freeDelivery: "Бесплатная доставка",
+    discount: "Скидка 5%",
+    descriptions: [
+  "Эта книга посвящена разработке мобильных приложений. Она начинается с основ языка Dart, затем рассматривает Flutter для создания современных мобильных интерфейсов и завершается изучением серверной разработки с использованием PHP для создания полноценных приложений.",
+  "Эта книга представляет собой полное введение в программирование на Java. Она охватывает основы языка, объектно-ориентированное программирование (ООП), структуры данных и алгоритмы. Книга предназначена для студентов университетов, упрощает сложные темы и обеспечивает прочную основу для успешного обучения и разработки программного обеспечения.",
+  "Эта книга посвящена концепциям искусственного интеллекта и машинного обучения. В ней рассматриваются важные алгоритмы, такие как K-Nearest Neighbors (KNN), основы теории вероятностей, анализ данных с использованием Pandas, визуализация с помощью Matplotlib и практические методы машинного обучения.",
+  "Эта книга знакомит с технологиями веб-разработки, включая HTML, CSS, JavaScript, ReactJS, NodeJS, PHP, а также Git и GitHub. Она предоставляет основные знания, необходимые для создания современных и интерактивных веб-приложений.",
+  "Эта книга объясняет основные концепции программной инженерии, включая диаграммы потоков данных (DFD), моделирование процессов, диаграммы вариантов использования, архитектуру систем баз данных и важнейшие принципы анализа и проектирования программного обеспечения.",
+  "Эта книга знакомит с основами цифровой логики, включая булеву алгебру, логические элементы, проектирование комбинационных и последовательностных схем, системы счисления и коды, используемые в цифровых системах.",
+  "Эта книга представляет собой введение в программирование на C++. Она охватывает основы программирования, объектно-ориентированное программирование (ООП), структуры данных и ключевые концепции, необходимые для разработки программного обеспечения.",
+  "Эта книга знакомит с программированием на Python. Она охватывает основы языка, объектно-ориентированное программирование (ООП), структуры данных и основные концепции, необходимые для формирования прочных навыков программирования."
+    ] , 
+    introText: "Эти книги были разработаны для студентов университетов, которые стремятся получить знания и понимание простым и эффективным способом, позволяющим быстро учиться с минимальной сложностью.",
+    delete: "Удалить"
+  },
+  العربية: {
+    request: "طلب",
+    about: "من نحن",
+    options: "الإعدادات",
+    soundMuted: "الصوت : مكتوم",
+    soundNotMuted: "الصوت : غير مكتوم",
+    languages: "اللغات",
+    close: "إغلاق",
+    fullName: "الاسم الكامل:",
+    phoneNumber: "رقم الهاتف:",
+    city: "المدينة:",
+    secretCode: "الرمز السري (مكافأة)",
+    addBooks: "إضافة كتب",
+    bookName: "اسم الكتاب:",
+    numberOfItems: "عدد النسخ:",
+    addExercises: "إضافة تمارين؟",
+    yes: "نعم",
+    no: "لا",
+    payWay: "طريقة الدفع:",
+    addOrder: "إضافة الطلب",
+    guide: "الدليل",
+    submit: "إرسال",
+    totalOrders: "إجمالي الطلبات:",
+    totalRevenue: "إجمالي الإيرادات:",
+    tableBook: "اسم الكتاب",
+    tableItems: "عدد النسخ",
+    tableTotal: "الإجمالي",
+    delivery: "رسوم التوصيل 3$",
+    phone: "رقم هاتفي:",
+    freeDelivery: "توصيل مجاني",
+    discount: "تم تطبيق خصم 5%",
+   descriptions: [
+  "يقدم هذا الكتاب تطوير تطبيقات الهاتف المحمول، حيث يبدأ بأساسيات لغة Dart، ثم ينتقل إلى Flutter لبناء واجهات مستخدم حديثة، وأخيرًا يشرح تطوير الـ Backend باستخدام PHP لإنشاء تطبيقات متكاملة.",
+  "يقدم هذا الكتاب مقدمة شاملة في برمجة Java، بدءًا من أساسيات اللغة، ثم البرمجة كائنية التوجه (OOP)، وهياكل البيانات والخوارزميات. صُمم خصيصًا لطلاب الجامعات لتبسيط المفاهيم المعقدة وبناء أساس قوي للنجاح الأكاديمي وتطوير البرمجيات.",
+  "يغطي هذا الكتاب مفاهيم الذكاء الاصطناعي وتعلم الآلة، بما في ذلك خوارزميات مهمة مثل K-Nearest Neighbors (KNN)، ومفاهيم الاحتمالات، وتحليل البيانات باستخدام Pandas، وعرض البيانات باستخدام Matplotlib، بالإضافة إلى تقنيات عملية في تعلم الآلة.",
+  "يقدم هذا الكتاب تقنيات تطوير الويب، بما في ذلك HTML وCSS وJavaScript وReactJS وNodeJS وPHP وGit وGitHub، ويوفر المعرفة الأساسية اللازمة لبناء تطبيقات ويب حديثة وتفاعلية.",
+  "يشرح هذا الكتاب مفاهيم هندسة البرمجيات، بما في ذلك مخططات تدفق البيانات (DFD)، ونمذجة العمليات، ومخططات حالات الاستخدام (Use Case Diagrams)، وبنية أنظمة قواعد البيانات، وأهم المبادئ المستخدمة في تحليل وتصميم البرمجيات.",
+  "يقدم هذا الكتاب مفاهيم المنطق الرقمي، بما في ذلك الجبر البولياني، والبوابات المنطقية، وتصميم الدوائر التوافقية، وتصميم الدوائر التسلسلية، وأنظمة الأعداد، والرموز المستخدمة في الأنظمة الرقمية.",
+  "يقدم هذا الكتاب مقدمة في برمجة ++C، حيث يغطي أساسيات البرمجة، والبرمجة كائنية التوجه (OOP)، وهياكل البيانات، وأهم المفاهيم المطلوبة لتطوير البرمجيات.",
+  "يقدم هذا الكتاب برمجة Python، حيث يغطي أساسيات اللغة، والبرمجة كائنية التوجه (OOP)، وهياكل البيانات، والمفاهيم الأساسية اللازمة لبناء مهارات قوية في البرمجة."
+] , 
+  introText: "تم تصميم هذه الكتب لطلاب الجامعات الذين يسعون إلى المعرفة والفهم بطريقة بسيطة وفعالة، مما يسمح لهم بالتعلم بسرعة وبأقل قدر من التعقيد.",
+  delete: "حذف"
+  }
+};
     const prices = {
         "Mobile App" : 16 ,
         "Java" : 16 ,
@@ -388,9 +665,7 @@
         "C++" : 16 ,
         "Python" : 16
     };
-
     let current = 0;
-
     async function submitOrder() {
         playClickSound();
         const fullName = document.getElementById("fullName").value;
@@ -407,40 +682,32 @@
             document.getElementById("phoneNumber").style.border = "2px solid red";
             hasError = true;
         }
-
         if(totalOrders === 0) {
             document.getElementById("addOrderBtn").style.border = "2px solid red";
+            hasError = true;
         }
-
         if(hasError) {
             return;
         }
-
         let ordersText = "";
-
         const rows = document.querySelectorAll("#ordersTable tr");
-
         for(let i=1 ; i<rows.length ;i++) {
         const cells = rows[i].cells;
         ordersText += cells[0].textContent + " | " + cells[1].textContent + " | " + cells[2].textContent + "\n"; 
         }
         const formData = new FormData();
-
         formData.append(
             "access_key" ,
             "bb1f7e15-837b-4736-a479-9c92600e4c47"
         );
-
         formData.append(
             "subject" ,
             "New University Books Order"
         );
-
         formData.append(
             "name" ,
             fullName
         );
-
         formData.append(
             "phone" ,
             phone
@@ -449,17 +716,14 @@
             "city" ,
             city
         );
-
         formData.append(
             "secretCode" ,
             secretCode.trim() === "" ? "Empty" : secretCode
         );
-
         formData.append(
             "payment" ,
             payWay
         );
-        
         if(totalItems >= 3) {
             ordersText += "\nFree Delivery";
             ordersText += "\n5% Discount Required";
@@ -469,18 +733,14 @@
         }
         else if(deliveryAdded)
             ordersText += "\n3$ Delivery Required";
-
-
         formData.append(
             "orders" ,
             ordersText
         );
-
         formData.append(
             "totalOrders" ,
             totalOrders
         );
-
         let finalRevenue = totalRevenue;
         if(totalItems >=3)
           finalRevenue = totalRevenue*0.95;
@@ -489,16 +749,13 @@
             "totalRevenue" ,
             "$" + finalRevenue.toFixed(2)
         );
-
         const response = await fetch( "https://api.web3forms.com/submit" ,
             {
               method : "POST" , 
               body : formData
             }
         );
- 
         const result = await response.json();
-
         if(result.success) {
             if(payWay === "Whish Money") {
                 window.open("https://www.whish.money", "_blank");
@@ -509,28 +766,93 @@
             else if(payWay === "BoB Finance") {
                 window.open("https://www.bob-finance.com/" , "_blank")
             }
-        }
-             
+        }        
        else 
         alert("Failed to send order.");
        
     }
-    
+    function changeLanguage(lang) {
+       currentLanguage = lang;
+       const t = translations[lang];
+       document.getElementById("intro-text").textContent = t.introText;
+       document.getElementById("deleteBtn").textContent = t.delete;
+       document.getElementById("showFormBtn").textContent = t.request;
+       document.getElementById("aboutBtn").textContent = t.about;
+       document.getElementById("optionsBtn").textContent = t.options;
+       document.getElementById("optionsTitle").textContent = t.options;
+       document.getElementById("closeOptionsBtn").textContent = t.close;
+       if(muted)
+       document.getElementById("soundBtn").textContent = t.soundMuted;
+       else
+       document.getElementById("soundBtn").textContent = t.soundNotMuted;
+       document.querySelector("#languageTitle").textContent = t.languages;
+       document.getElementById("fullNameLabel").textContent = t.fullName;
+       document.getElementById("phoneLabel").textContent = t.phoneNumber;
+       document.getElementById("cityLabel").textContent = t.city;
+       document.getElementById("secretCodeLabel").textContent = t.secretCode;
+       document.getElementById("addBooksBtn").textContent = t.addBooks;
+       document.getElementById("bookNameLabel").textContent = t.bookName;
+       document.getElementById("quantityLabel").textContent = t.numberOfItems;
+       document.getElementById("exerciseLabel").textContent = t.addExercises;
+       document.getElementById("yesLabel").textContent = t.yes;
+       document.getElementById("noLabel").textContent = t.no;
+       document.getElementById("payWayLabel").textContent = t.payWay;
+       document.getElementById("addOrderBtn").textContent = t.addOrder;
+       document.getElementById("guideBtn").textContent = t.guide;
+       document.getElementById("submitBtn").textContent = t.submit;
+       document.getElementById("summaryText").innerHTML = `${t.totalOrders}<span id="totalOrders">${totalOrders}</span> | ${t.totalRevenue} $<span id="totalRevenue">${totalRevenue.toFixed(2)}</span> `;
+       document.getElementById("bookHeader").textContent = t.tableBook;
+       document.getElementById("itemsHeader").textContent = t.tableItems;
+       document.getElementById("totalHeader").textContent = t.tableTotal;
+       document.getElementById("deliveryText").textContent = t.delivery;
+       document.getElementById("freeDeliveryText").textContent = t.freeDelivery;
+       document.getElementById("discountText").textContent = t.discount;
+       document.getElementById("phoneText").textContent = t.phone + " +961 76 125 354" ;
+       showImage();
+    }
+    function toggleSound() {
+        muted = !muted;
+        const btn = document.getElementById("soundBtn");
+        if(muted) {
+            btn.textContent = translations[currentLanguage].soundMuted;
+            btn.style.background = "red";
+        }
+        else {
+            playClickSound();
+            btn.textContent = translations[currentLanguage].soundNotMuted;
+            btn.style.background = "green";
+        }
+    }
+    function toggleLanguages() {
+        playClickSound();
+        const menu = document.getElementById("languageMenu");
+        if(menu.style.display === "flex")
+         menu.style.display = "none";
+        else
+        menu.style.display = "flex";
+    }
     function playClickSound() {
+        if(muted)
+          return;
         clickSound.currentTime = 0;
         clickSound.play();
     }
     function showImage() {
         document.getElementById("slider").src = images[current];
-        document.getElementById("description").textContent = descriptions[current] ;
+        document.getElementById("description").textContent = translations[currentLanguage].descriptions[current] ;
     }
-    
     function openGuide() {
         playClickSound();
         window.open("Guide.html" , "_blank");
     }
-
-
+    function openOptions() {
+        playClickSound();
+        document.getElementById("optionsModal").style.display = "flex";
+    }
+    function closeOptions() {
+        playClickSound();
+        document.getElementById("optionsModal").style.display = "none";
+    }
     function openAbout() {
         playClickSound();
         window.open( "https://mypersonalmainpage5600.jammoul26se.workers.dev/" , "_blank");
@@ -561,8 +883,7 @@
             document.getElementById("deliveryText").style.display = "none";
             document.getElementById("freeDeliveryText").style.display = "block";
         }
-        document.getElementById("phoneText").style.display = "block";
-        
+        document.getElementById("phoneText").style.display = "block";   
         totalOrders++;
         document.getElementById("deleteBtn").style.display = "inline-block";
         totalRevenue +=total;
@@ -582,7 +903,6 @@
         row.insertCell(1).textContent = quantity;
         row.insertCell(2).textContent = "$" + total.toFixed(2);
     }
-
     function showOrderBox() {
         playClickSound();
         const orderBox =  document.getElementById("orderBox");
@@ -591,7 +911,6 @@
       else
     orderBox.style.display = "none"; 
       }
-
     function nextImage() {
         current = (current + 1) % images.length ;
         showImage();
@@ -600,12 +919,10 @@
        current = (current - 1 + images.length) % images.length ; 
        showImage();
    }
-
    function toggleForm() {
     playClickSound();
     const form = document.getElementById("bookForm");
     const orderBox = document.getElementById("orderBox");
-
     if(form.style.display === "none") 
     form.style.display = "block";
     else {
@@ -613,9 +930,7 @@
         orderBox.style.display = "none";
     }
    }
-
    setInterval(nextImage , 3000);
-
    document.getElementById("fullName").addEventListener("input" , function() {
     this.style.border = "";
    });
@@ -666,11 +981,12 @@
         document.getElementById("discountText").style.display = "none";
     }
     document.getElementById("totalOrders").textContent = totalOrders;
-    document.getElementById("totalRevenue").textContent = totalRevenue.toFixed(2);
+    let displayedRevenue = totalRevenue;
+    if(totalItems >=3)
+    displayedRevenue = totalRevenue*0.95;
+    document.getElementById("totalRevenue").textContent = displayedRevenue.toFixed(2);
    }
-
    window.onload = function() {
-
    if(window.innerWidth <= 768) {
       if(!localStorage.getItem("mobileNoticeShown")) {
         alert("For a better layout and easier control, using a laptop or desktop device is recommended");
@@ -681,5 +997,4 @@
    };
     </script>
 </body>
-
 </html>
