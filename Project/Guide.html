@@ -16,7 +16,8 @@
         }
 
         .priceTable {
-            width: 300px;
+            width: 500px;
+            max-width: 100%;
             border-collapse : collapse;
             margin: 20px 0;
             background-color: rgba(255,255,255,0.05);
@@ -121,17 +122,34 @@
         }
         #closeOptionsBtn {
             background: gray;
-            width:90px;
+            padding: 8px;
+            font-size: 12px;
+            width:70px;
+        }
+        #volumeBtn {
+            background: green;
+            color: white;
+            font-weight: bold;
         }
         @media (max-width: 768px) {
             body {
                 zoom:0.9;
                 font-size: 20px;
             }
+            .top-bar {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 10px;
+            }
             .section-title {
-                font-size: 40px;
-                padding: 12px 22px;
-                display: inline-block;
+                font-size: 28px;
+                padding: 10px 18px;
+                white-space: nowrap;
+            }
+            .top-buttons {
+                display: flex;
+                gap: 8px;
             }
             ol,ul,li {
                 font-size: 20px;
@@ -210,67 +228,70 @@
         
         <table class = "priceTable">
             <tr>
-                <th>Book</th>
-                <th>Price</th>
-                <th>Nb of Pages</th>
+                <th id="bookHeader">Book</th>
+                <th id="priceHeader">Price</th>
+                <th id="pagesHeader">Nb of Pages</th>
             </tr>
             <tr>
                 <td>Mobile Application</td>
                 <td>$16.00</td>
-                <td>110 pages</td>
+                <td>110 <span class="pageText">pages</span></td>
             </tr>
             <tr>
                 <td>Java</td>
                 <td>$16.00</td>
-                <td>95 pages</td>
+                <td>95 <span class="pageText">pages</span></td>
             </tr>
             <tr>
                 <td>AI & Machine Learning</td>
                 <td>$16.00</td>
-                <td>98 pages</td>
+                <td>98 <span class="pageText">pages</span></td>
             </tr>
             <tr>
                 <td>Web</td>
                 <td>$16.00</td>
-                <td>108 pages</td>
+                <td>108 <span class="pageText">pages</span></td>
             </tr>
             <tr>
                 <td>Software Engineering</td>
                 <td>$12.00</td>
-                <td>56 pages</td>
+                <td>56 <span class="pageText">pages</span></td>
             </tr>
             <tr>
                 <td>Digital Logic</td>
                 <td>$12.00</td>
-                <td>52 pages</td>
+                <td>52 <span class="pageText">pages</span></td>
             </tr>
              <tr>
                 <td>C++</td>
                 <td>$16.00</td>
-                <td>105 pages</td>
+                <td>105 <span class ="pageText">pages</span></td>
             </tr>
             <tr>
                 <td>Python</td>
                 <td>$16.00</td>
-                <td>97 pages</td>
+                <td>97 <span class="pageText">pages</span></td>
             </tr>
         </table>
         <div id="optionsModal">
             <div class="options-box">
-                <h2>Options</h2>
+                <h2 id="optionsTitle">Options</h2>
+                <button id="volumeBtn" onclick="toggleSound()">Volume : Not Muted</button>
                 <select id="languageSelect" onchange="playClickSound(); changeLanguage(this.value)">
-                    <option selected disabled>Languages</option>
-                    <option>English</option>
-                    <option>Français</option>
-                    <option>Español</option>
-                    <option>Русский</option>
-                    <option>العربية</option>
+                    <option value="English" selected>English</option>
+                    <option value="Français">Français</option>
+                    <option value="Español">Español</option>
+                    <option value="Русский">Русский</option>
+                    <option value="العربية">العربية</option>
                 </select>
                 <button id="closeOptionsBtn" onclick="playClickSound(); closeOptions()">Close</button>
             </div>
         </div>
     <script>
      const clickSound = new Audio("ClickSoundTrackBooks.mp4");
+     let muted = false;
+     let isMuted = false;
+     let currentLanguage = "English";
      const translations = {
     English: {
         requestTitle: "How to Request ?",
@@ -295,7 +316,9 @@
         bookHeader: "Book",
         priceHeader: "Price",
         pagesHeader: "Nb of Pages",
-        pages: "pages"
+        pages: "pages" ,
+        volumeNotMuted: "Volume : Not Muted",
+        volumeMuted: "Volume : Muted"
     },
     Français: {
         requestTitle: "Comment demander ?",
@@ -314,13 +337,15 @@
         deliveryInfo: "Après le paiement, votre commande sera traitée et livrée dans quelques jours. Un jour avant la livraison, le livreur vous contactera pour organiser l'heure et le lieu exacts.",
         contactInfo: "Si vous avez des questions ou besoin d'aide, vous pouvez me contacter directement uniquement via WhatsApp en utilisant le même numéro indiqué ci-dessus",
         booksPrices: "Prix des livres" ,
-       returnPage: "Retour à la page de commande",
-       optionsTitle: "Options",
-       close: "Fermer",
-       bookHeader: "Livre",
-       priceHeader: "Prix",
-       pagesHeader: "Nombre de pages",
-       pages: "pages"
+        returnPage: "Retour à la page de commande",
+        optionsTitle: "Options",
+        close: "Fermer",
+        bookHeader: "Livre",
+        priceHeader: "Prix",
+        pagesHeader: "Nombre de pages",
+        pages: "pages" ,
+        volumeNotMuted: "Volume : Activé",
+        volumeMuted: "Volume : Désactivé"
     },
     Español: {
         requestTitle: "¿Cómo solicitar?",
@@ -345,7 +370,9 @@
         bookHeader: "Libro",
         priceHeader: "Precio",
         pagesHeader: "Número de páginas",
-        pages: "páginas"
+        pages: "páginas" ,
+        volumeNotMuted: "Volumen : Activado",
+        volumeMuted: "Volumen : Silenciado"
       },
     Русский: {
         requestTitle: "Как заказать?",
@@ -370,7 +397,9 @@
         bookHeader: "Книга",
         priceHeader: "Цена",
         pagesHeader: "Количество страниц",
-        pages: "страниц"
+        pages: "страниц" ,
+        volumeNotMuted: "Звук : Включён",
+        volumeMuted: "Звук : Выключен"
     },
     العربية: {
         requestTitle: "كيفية الطلب ؟",
@@ -395,12 +424,32 @@
         bookHeader: "الكتاب",
         priceHeader: "السعر",
         pagesHeader: "عدد الصفحات",
-        pages: "صفحة"
+        pages: "صفحة" ,
+        volumeNotMuted: "الصوت : يعمل",
+        volumeMuted: "الصوت : مكتوم"
     }
 };
      function playClickSound() {
+        if(muted)
+         return;
         clickSound.currentTime =0;
         clickSound.play();
+     }
+     function toggleSound() {
+        const t = translations[currentLanguage];
+        const btn = document.getElementById("volumeBtn");
+        muted = !muted;
+        clickSound.muted = muted;
+        if(muted) {
+            btn.textContent = t.volumeMuted;
+            btn.style.background = "red";
+        } 
+        else {
+            btn.textContent = t.volumeNotMuted;
+            btn.style.background = "green";
+            clickSound.currentTime = 0;
+            clickSound.play();
+        }
      }
      function openOptions() {
         document.getElementById("optionsModal").style.display = "flex";
@@ -415,6 +464,7 @@
         }, 300);
      }
      function changeLanguage(lang) {
+        currentLanguage = lang;
         const t = translations[lang];
         document.getElementById("requestTitle").textContent = t.requestTitle;
         document.getElementById("step1").textContent = t.step1;
@@ -440,6 +490,15 @@
         document.getElementById("priceHeader").textContent = t.priceHeader;
         document.getElementById("pagesHeader").textContent = t.pagesHeader;
         document.querySelectorAll(".pageText").forEach(p => { p.textContent = t.pages});
+        const volumeBtn = document.getElementById("volumeBtn");
+        if(muted) {
+            volumeBtn.textContent = t.volumeMuted;
+            volumeBtn.style.background = "red";
+        }
+        else {
+            volumeBtn.textContent = t.volumeNotMuted;
+            volumeBtn.style.background = "green";
+        }
      }
     </script>
     </body>
