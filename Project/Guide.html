@@ -173,8 +173,8 @@
                 How to Request ?
         </div>
         <div class="top-buttons">
-            <button id="returnBtn">Return to Order Page</button>
-            <button id="optionsBtn">Options</button>
+            <button id="returnBtn" onclick="returnToOrderPage()">Return to Order Page</button>
+            <button id="optionsBtn" oncclick="playClickSound(); openOptions()">Options</button>
         </div>
         </div>
        
@@ -289,7 +289,6 @@
             </div>
         </div>
     <script>
-        document.body.innerHTML = "SCRIPT IS RUNNING";
      const clickSound = new Audio("ClickSoundTrackBooks.mp4");
      let muted = false;
      let isMuted = false;
@@ -454,7 +453,6 @@
         }
      }
      function openOptions() {
-        alert("OPEN WORKS");
         document.getElementById("optionsModal").style.display = "flex";
      }
      function closeOptions() {
@@ -503,12 +501,6 @@
             volumeBtn.style.background = "green";
         }
      }
-     document.getElementById("optionsBtn").addEventListener("click" , function() {
-        openOptions();
-     });
-     document.getElementById("returnBtn").addEventListener("click" , function() {
-        returnToOrderPage();
-     });
     </script>
     </body>
 </html>
