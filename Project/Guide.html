@@ -5,7 +5,7 @@
       <meta name="viewport" content="width=device-width,initial-scale=1.0">
       <style>
         body {
-        zoom:0.85;
+        font-family: Arial, sans-serif;
         }
         
         h2 {
@@ -168,8 +168,8 @@
                 How to Request ?
         </div>
         <div class="top-buttons">
-            <button id="returnBtn" onclick="returnToOrderPage()">Return to Order Page</button>
-            <button id="optionsBtn" onclick="playClickSound(); openOptions()">Options</button>
+            <button id="returnBtn">Return to Order Page</button>
+            <button id="optionsBtn">Options</button>
         </div>
         </div>
        
@@ -429,7 +429,7 @@
         if(muted)
          return;
         clickSound.currentTime =0;
-        clickSound.play();
+        clickSound.play().catch(() => {});
      }
      function toggleSound() {
         const t = translations[currentLanguage];
@@ -496,6 +496,12 @@
             volumeBtn.style.background = "green";
         }
      }
+     document.getElementById("optionsBtn").addEventListener("click" , function() {
+        openOptions();
+     });
+     document.getElementById("returnBtn").addEventListener("click" , function() {
+        returnToOrderPage();
+     });
     </script>
     </body>
 </html>
