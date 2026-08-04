@@ -326,7 +326,8 @@
         <select id = "bookSelect">
             <option>Mobile App</option>
             <option>Java</option>
-            <option>AI & Machine Learning</option>
+            <option>Artificial Intelligence</option>
+            <option>Machine Learning</option>
             <option>Web</option>
             <option>Software Engineering</option>
             <option>Digital Logic</option>
@@ -416,7 +417,8 @@
     const images = [
    "UBooksPhotos/UMobileApplication.png" ,
    "UBooksPhotos/UJava.jpeg" ,
-   "UBooksPhotos/UMachineLearning.png" ,
+   "UBooksPhotos/UAi.png" ,
+   "UBooksPhotos/UMachineLearning.jpeg" ,
    "UBooksPhotos/UWeb.png" ,
    "UBooksPhotos/USoft.png" , 
    "UBooksPhotos/UDigitalLogic.png" ,
@@ -427,7 +429,8 @@
    const descriptions = [
     "This book introduces Mobile Application Development, starting with the fundamentals of Dart programming, then moving to Flutter for building modern mobile interfaces, and finally covering backend development using PHP to create complete applications.",
     "This book provides a comprehensive introduction to Java programming, starting with fundamentals to Object-Oriented Programming (OOP), Data Structures and Algorithms. Designed for university students, it simplifies complex concepts and offers a solid foundation for academic success and software development.",
-    "This book covers Artificial Intelligence and Machine Learning concepts, including important algorithms such as K-Nearest Neighbors (KNN), probability concepts, data analysis using Pandas, visualization using Matplotlib, and practical machine learning techniques.",
+    "This book introduces Artificial Intelligence, covering intelligent agents, problem-solving, search algorithms, knowledge representation, logical reasoning, First-Order Logic (FOL), Prolog, and the fundamentals of intelligent systems.",
+    "This book introduces Machine Learning, covering supervised and unsupervised learning, K-Nearest Neighbors (KNN), probability concepts, data analysis using Pandas, data visualization with Matplotlib, and practical machine learning applications.",
     "This book introduces Web Development technologies, covering HTML, CSS, JavaScript, ReactJS, NodeJS, PHP, and Git & GitHub. It provides the essential knowledge required to build modern and interactive web applications.",
     "This book explains Software Engineering concepts, including Data Flow Diagrams (DFD), Process Modeling, Use Case Diagrams, Database System Architecture, and important principles used in software analysis and design.",
     "This book introduces Digital Logic concepts, including Boolean Algebra, Logic Gates, Combinational Logic Design, Sequential Logic Design, Number Systems, and Codes used in digital systems.",
@@ -469,7 +472,8 @@
     descriptions: [
   "This book introduces Mobile Application Development, starting with the fundamentals of the Dart programming language, then moving to Flutter for building modern mobile user interfaces, and finally covering backend development using PHP to create complete and fully functional mobile applications.",
   "This book provides a comprehensive introduction to Java programming. It covers the fundamentals of the language, Object-Oriented Programming (OOP), Data Structures, and Algorithms. Designed for university students, it simplifies complex concepts while providing a strong foundation for academic success and professional software development.",
-  "This book covers the concepts of Artificial Intelligence and Machine Learning. It includes important algorithms such as K-Nearest Neighbors (KNN), probability concepts, data analysis using Pandas, data visualization with Matplotlib, and practical machine learning techniques used in real-world applications.",
+  "This book introduces Artificial Intelligence, covering intelligent agents, problem-solving, search algorithms, knowledge representation, logical reasoning, First-Order Logic (FOL), Prolog, and the fundamentals of intelligent systems.",
+  "This book introduces Machine Learning, covering supervised and unsupervised learning, K-Nearest Neighbors (KNN), probability concepts, data analysis using Pandas, data visualization with Matplotlib, and practical machine learning applications.",
   "This book introduces Web Development technologies, including HTML, CSS, JavaScript, ReactJS, NodeJS, PHP, and Git & GitHub. It provides the essential knowledge and practical skills required to build modern, responsive, and interactive web applications.",
   "This book explains the principles of Software Engineering, including Data Flow Diagrams (DFD), Process Modeling, Use Case Diagrams, Database System Architecture, and the essential concepts used in software analysis, design, and development.",
   "This book introduces the concepts of Digital Logic, including Boolean Algebra, Logic Gates, Combinational Logic Design, Sequential Logic Design, Number Systems, and the coding techniques used in digital systems.",
@@ -513,14 +517,15 @@
     freeDelivery: "Livraison gratuite",
     descriptions: [
       "Ce livre présente le développement d'applications mobiles. Il commence par les bases du langage Dart, puis passe à Flutter pour créer des interfaces mobiles modernes, et se termine par le développement backend avec PHP afin de créer des applications complètes.",
-"Ce livre offre une introduction complète à la programmation Java. Il couvre les bases du langage, la programmation orientée objet (POO), les structures de données et les algorithmes. Conçu pour les étudiants universitaires, il simplifie les concepts complexes et fournit une base solide pour la réussite académique et le développement logiciel.",
-"Ce livre couvre les concepts de l'intelligence artificielle et du Machine Learning. Il présente des algorithmes importants tels que K-Nearest Neighbors (KNN), les probabilités, l'analyse de données avec Pandas, la visualisation avec Matplotlib et des techniques pratiques d'apprentissage automatique.",
-"Ce livre présente les technologies du développement Web, notamment HTML, CSS, JavaScript, ReactJS, NodeJS, PHP ainsi que Git et GitHub. Il fournit les connaissances essentielles pour créer des applications Web modernes et interactives.",
-"Ce livre explique les concepts du génie logiciel, notamment les diagrammes de flux de données (DFD), la modélisation des processus, les diagrammes de cas d'utilisation, l'architecture des systèmes de bases de données et les principes fondamentaux de l'analyse et de la conception logicielle.",
-"Ce livre présente les concepts de la logique numérique, notamment l'algèbre de Boole, les portes logiques, les circuits combinatoires, les circuits séquentiels, les systèmes de numération et les codes utilisés dans les systèmes numériques.",
-"Ce livre fournit une introduction à la programmation en C++. Il couvre les bases de la programmation, la programmation orientée objet (POO), les structures de données et les concepts essentiels nécessaires au développement logiciel.",
-"Ce livre présente la programmation Python. Il couvre les bases du langage, la programmation orientée objet (POO), les structures de données et les concepts essentiels pour développer de solides compétences en programmation." ,
-"Ce livre présente les concepts de programmation. Il couvre des sujets importants tels que les préliminaires des langages de programmation, la description de la syntaxe et de la sémantique, les noms, les liaisons et les portées, les types de données, les expressions et les instructions d'affectation, ainsi que les structures de contrôle au niveau des instructions. Il fournit une base théorique solide pour comprendre le fonctionnement des langages de programmation."
+      "Ce livre offre une introduction complète à la programmation Java. Il couvre les bases du langage, la programmation orientée objet (POO), les structures de données et les algorithmes. Conçu pour les étudiants universitaires, il simplifie les concepts complexes et fournit une base solide pour la réussite académique et le développement logiciel.",
+      "Ce livre présente les bases de l'intelligence artificielle, notamment les agents intelligents, la résolution de problèmes, les algorithmes de recherche, la représentation des connaissances, le raisonnement logique, la logique du premier ordre (FOL), Prolog et les systèmes intelligents." ,
+      "Ce livre présente le Machine Learning, y compris l'apprentissage supervisé et non supervisé, l'algorithme KNN, les probabilités, l'analyse de données avec Pandas, la visualisation avec Matplotlib et les applications pratiques.",
+      "Ce livre présente les technologies du développement Web, notamment HTML, CSS, JavaScript, ReactJS, NodeJS, PHP ainsi que Git et GitHub. Il fournit les connaissances essentielles pour créer des applications Web modernes et interactives.",
+      "Ce livre explique les concepts du génie logiciel, notamment les diagrammes de flux de données (DFD), la modélisation des processus, les diagrammes de cas d'utilisation, l'architecture des systèmes de bases de données et les principes fondamentaux de l'analyse et de la conception logicielle.",
+      "Ce livre présente les concepts de la logique numérique, notamment l'algèbre de Boole, les portes logiques, les circuits combinatoires, les circuits séquentiels, les systèmes de numération et les codes utilisés dans les systèmes numériques.",
+      "Ce livre fournit une introduction à la programmation en C++. Il couvre les bases de la programmation, la programmation orientée objet (POO), les structures de données et les concepts essentiels nécessaires au développement logiciel.",
+      "Ce livre présente la programmation Python. Il couvre les bases du langage, la programmation orientée objet (POO), les structures de données et les concepts essentiels pour développer de solides compétences en programmation." ,
+      "Ce livre présente les concepts de programmation. Il couvre des sujets importants tels que les préliminaires des langages de programmation, la description de la syntaxe et de la sémantique, les noms, les liaisons et les portées, les types de données, les expressions et les instructions d'affectation, ainsi que les structures de contrôle au niveau des instructions. Il fournit une base théorique solide pour comprendre le fonctionnement des langages de programmation."
     ] ,
     introText: "Ces livres ont été conçus pour les étudiants universitaires qui recherchent la connaissance et la compréhension d'une manière simple et efficace, leur permettant d'apprendre rapidement avec un minimum de complexité.",
     delete: "Supprimer" ,
@@ -559,7 +564,8 @@
     descriptions: [
   "Este libro presenta el desarrollo de aplicaciones móviles. Comienza con los fundamentos del lenguaje Dart, luego pasa a Flutter para crear interfaces móviles modernas y finalmente cubre el desarrollo backend con PHP para construir aplicaciones completas.",
   "Este libro ofrece una introducción completa a la programación en Java. Cubre los fundamentos del lenguaje, la Programación Orientada a Objetos (POO), las estructuras de datos y los algoritmos. Está diseñado para estudiantes universitarios y simplifica conceptos complejos para proporcionar una base sólida para el éxito académico y el desarrollo de software.",
-  "Este libro cubre los conceptos de Inteligencia Artificial y Aprendizaje Automático. Incluye algoritmos importantes como K-Nearest Neighbors (KNN), conceptos de probabilidad, análisis de datos con Pandas, visualización con Matplotlib y técnicas prácticas de Machine Learning.",
+  "Este libro presenta la Inteligencia Artificial, incluyendo agentes inteligentes, resolución de problemas, algoritmos de búsqueda, representación del conocimiento, razonamiento lógico, lógica de primer orden (FOL), Prolog y los fundamentos de los sistemas inteligentes." ,
+  "Este libro presenta el Aprendizaje Automático, incluyendo aprendizaje supervisado y no supervisado, KNN, conceptos de probabilidad, análisis de datos con Pandas, visualización con Matplotlib y aplicaciones prácticas." ,
   "Este libro presenta las tecnologías del desarrollo web, incluyendo HTML, CSS, JavaScript, ReactJS, NodeJS, PHP y Git & GitHub. Proporciona los conocimientos esenciales para crear aplicaciones web modernas e interactivas.",
   "Este libro explica los conceptos de Ingeniería de Software, incluyendo Diagramas de Flujo de Datos (DFD), Modelado de Procesos, Diagramas de Casos de Uso, Arquitectura de Sistemas de Bases de Datos y principios fundamentales utilizados en el análisis y diseño de software.",
   "Este libro presenta los conceptos de Lógica Digital, incluyendo Álgebra Booleana, Puertas Lógicas, Diseño de Circuitos Combinacionales, Diseño de Circuitos Secuenciales, Sistemas Numéricos y Códigos utilizados en los sistemas digitales.",
@@ -604,8 +610,9 @@
     descriptions: [
   "Эта книга посвящена разработке мобильных приложений. Она начинается с основ языка Dart, затем рассматривает Flutter для создания современных мобильных интерфейсов и завершается изучением серверной разработки с использованием PHP для создания полноценных приложений.",
   "Эта книга представляет собой полное введение в программирование на Java. Она охватывает основы языка, объектно-ориентированное программирование (ООП), структуры данных и алгоритмы. Книга предназначена для студентов университетов, упрощает сложные темы и обеспечивает прочную основу для успешного обучения и разработки программного обеспечения.",
-  "Эта книга посвящена концепциям искусственного интеллекта и машинного обучения. В ней рассматриваются важные алгоритмы, такие как K-Nearest Neighbors (KNN), основы теории вероятностей, анализ данных с использованием Pandas, визуализация с помощью Matplotlib и практические методы машинного обучения.",
-  "Эта книга знакомит с технологиями веб-разработки, включая HTML, CSS, JavaScript, ReactJS, NodeJS, PHP, а также Git и GitHub. Она предоставляет основные знания, необходимые для создания современных и интерактивных веб-приложений.",
+  "Эта книга знакомит с искусственным интеллектом, включая интеллектуальных агентов, решение задач, алгоритмы поиска, представление знаний, логический вывод, логику первого порядка (FOL), Prolog и основы интеллектуальных систем." ,
+  "Эта книга посвящена машинному обучению. В ней рассматриваются контролируемое и неконтролируемое обучение, алгоритм KNN, теория вероятностей, анализ данных с помощью Pandas, визуализация с Matplotlib и практические применения." ,
+  "Эта книга знакомит с технологиями веб-разработки, включая HTML, CSS, JavaScript, ReactJS, NodeJS, PHP, а также Git и GitHub. Она предоставляет основные знания, необходимые для создания современных и интерактивных веб-приложений." ,
   "Эта книга объясняет основные концепции программной инженерии, включая диаграммы потоков данных (DFD), моделирование процессов, диаграммы вариантов использования, архитектуру систем баз данных и важнейшие принципы анализа и проектирования программного обеспечения.",
   "Эта книга знакомит с основами цифровой логики, включая булеву алгебру, логические элементы, проектирование комбинационных и последовательностных схем, системы счисления и коды, используемые в цифровых системах.",
   "Эта книга представляет собой введение в программирование на C++. Она охватывает основы программирования, объектно-ориентированное программирование (ООП), структуры данных и ключевые концепции, необходимые для разработки программного обеспечения.",
@@ -649,7 +656,8 @@
    descriptions: [
   "يقدم هذا الكتاب تطوير تطبيقات الهاتف المحمول، حيث يبدأ بأساسيات لغة Dart، ثم ينتقل إلى Flutter لبناء واجهات مستخدم حديثة، وأخيرًا يشرح تطوير الـ Backend باستخدام PHP لإنشاء تطبيقات متكاملة.",
   "يقدم هذا الكتاب مقدمة شاملة في برمجة Java، بدءًا من أساسيات اللغة، ثم البرمجة كائنية التوجه (OOP)، وهياكل البيانات والخوارزميات. صُمم خصيصًا لطلاب الجامعات لتبسيط المفاهيم المعقدة وبناء أساس قوي للنجاح الأكاديمي وتطوير البرمجيات.",
-  "يغطي هذا الكتاب مفاهيم الذكاء الاصطناعي وتعلم الآلة، بما في ذلك خوارزميات مهمة مثل K-Nearest Neighbors (KNN)، ومفاهيم الاحتمالات، وتحليل البيانات باستخدام Pandas، وعرض البيانات باستخدام Matplotlib، بالإضافة إلى تقنيات عملية في تعلم الآلة.",
+  "يقدم هذا الكتاب مقدمة في الذكاء الاصطناعي، حيث يغطي الوكلاء الأذكياء، حل المشكلات، خوارزميات البحث، تمثيل المعرفة، الاستدلال المنطقي، منطق الرتبة الأولى (FOL)، لغة Prolog، وأساسيات الأنظمة الذكية." ,
+  "يقدم هذا الكتاب مقدمة في تعلم الآلة، حيث يغطي التعلم الموجّه وغير الموجّه، خوارزمية K-Nearest Neighbors (KNN)، مفاهيم الاحتمالات، تحليل البيانات باستخدام Pandas، عرض البيانات باستخدام Matplotlib، والتطبيقات العملية لتعلم الآلة." ,
   "يقدم هذا الكتاب تقنيات تطوير الويب، بما في ذلك HTML وCSS وJavaScript وReactJS وNodeJS وPHP وGit وGitHub، ويوفر المعرفة الأساسية اللازمة لبناء تطبيقات ويب حديثة وتفاعلية.",
   "يشرح هذا الكتاب مفاهيم هندسة البرمجيات، بما في ذلك مخططات تدفق البيانات (DFD)، ونمذجة العمليات، ومخططات حالات الاستخدام (Use Case Diagrams)، وبنية أنظمة قواعد البيانات، وأهم المبادئ المستخدمة في تحليل وتصميم البرمجيات.",
   "يقدم هذا الكتاب مفاهيم المنطق الرقمي، بما في ذلك الجبر البولياني، والبوابات المنطقية، وتصميم الدوائر التوافقية، وتصميم الدوائر التسلسلية، وأنظمة الأعداد، والرموز المستخدمة في الأنظمة الرقمية.",
@@ -665,7 +673,8 @@
     const prices = {
         "Mobile App" : 20 ,
         "Java" : 19 ,
-        "AI & Machine Learning" : 19 ,
+        "Artificial Intelligence" : 15 ,
+        "Machine Learning" : 15 ,
         "Web" : 20 ,
         "Software Engineering" : 15 ,
         "Digital Logic" : 15 ,
@@ -676,7 +685,8 @@
     const exercisePrices = {
         "Mobile App" : 6 ,
         "Java" : 5 ,
-        "AI & Machine Learning" : 8 ,
+        "Artificial Intelligence" : 5 ,
+        "Machine Learning" : 8 ,
         "Web" : 7 ,
         "Software Engineering" : 5 ,
         "Digital Logic" : 5 ,
@@ -743,7 +753,7 @@
             "payment" ,
             payWay
         );
-        if(totalItems >= 2)
+        if(totalItems >= 3)
            ordersText += "\nFree Delivery";
         else if(deliveryAdded)
             ordersText += "\n5$ Delivery Required";
@@ -889,7 +899,7 @@
         document.getElementById("deliveryText").style.display = "block";
         document.getElementById("phoneText").style.display = "block";
         }
-        if(totalItems >= 2) {
+        if(totalItems >= 3) {
             if(deliveryAdded) {
                 totalRevenue-=5;
                 deliveryAdded = false;
@@ -937,7 +947,7 @@
         orderBox.style.display = "none";
     }
    }
-   setInterval(nextImage , 3000);
+   setInterval(nextImage , 1500);
    document.getElementById("fullName").addEventListener("input" , function() {
     this.style.border = "";
    });
@@ -966,7 +976,7 @@
     table.deleteRow(table.rows.length - 1);
     totalOrders--;
     totalRevenue -= total;
-    if(totalItems < 2 && totalOrders >0) {
+    if(totalItems < 3 && totalOrders >0) {
         if(!deliveryAdded) {
           totalRevenue+=5;
           deliveryAdded = true;    
