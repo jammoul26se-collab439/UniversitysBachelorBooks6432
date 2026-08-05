@@ -325,13 +325,14 @@
         <label id="bookNameLabel">Book Name:</label><br>
         <select id = "bookSelect">
             <option>Mobile App</option>
-            <option>Java</option>
+            <option>Java Fundamentals & OOP</option>
             <option>Artificial Intelligence</option>
             <option>Machine Learning</option>
             <option>Web Front-End</option>
             <option>Software Engineering</option>
             <option>Digital Logic</option>
             <option>C++</option>
+            <option>Java Data Structures and Algorithms</option>
             <option>Python</option>
             <option>Programming Concepts</option>    
             <option>Computer Architecture</option>
@@ -418,13 +419,14 @@
     let currentLanguage = "English";
     const images = [
    "UBooksPhotos/UMobileApplication.png" ,
-   "UBooksPhotos/UJava.jpeg" ,
+   "UBooksPhotos/UJavaFOOP.png" ,
    "UBooksPhotos/UAI.png" ,
    "UBooksPhotos/UMachineLearning.png" ,
    "UBooksPhotos/UWebFrontEnd.png" ,
    "UBooksPhotos/USoft.png" , 
    "UBooksPhotos/UDigitalLogic.png" ,
    "UBooksPhotos/UCpp.png" ,
+   "UBooksPhotos/UJavaDS.png",
    "UBooksPhotos/UPython.png" ,
    "UBooksPhotos/UConcepts.jpeg" ,
    "UBooksPhotos/UComputerArch.png" ,
@@ -432,13 +434,14 @@
     ];
    const descriptions = [
     "This book introduces Mobile Application Development, starting with the fundamentals of Dart programming, then moving to Flutter for building modern mobile interfaces, and finally covering backend development using PHP to create complete applications.",
-    "This book provides a comprehensive introduction to Java programming, starting with fundamentals to Object-Oriented Programming (OOP), Data Structures and Algorithms. Designed for university students, it simplifies complex concepts and offers a solid foundation for academic success and software development.",
+    "This book introduces Java Fundamentals and Object-Oriented Programming (OOP). It covers data types, variables, comments, operators, conditional statements, loops, methods, arrays, classes and objects, constructors, inheritance, polymorphism, strings, abstract classes, interfaces, vectors, exception handling, and file handling. It provides a strong foundation for building professional Java applications.",
     "This book introduces Artificial Intelligence, covering intelligent agents, problem-solving, search algorithms, knowledge representation, logical reasoning, First-Order Logic (FOL), Prolog, and the fundamentals of intelligent systems.",
     "This book introduces Machine Learning, covering supervised and unsupervised learning, K-Nearest Neighbors (KNN), probability concepts, data analysis using Pandas, data visualization with Matplotlib, and practical machine learning applications.",
     "This book introduces Web Front-End Development, covering HTML, CSS, JavaScript, ReactJS, and Bootstrap. It provides the essential knowledge and practical skills required to build modern, responsive, and interactive web user interfaces.",
     "This book explains Software Engineering concepts, including Data Flow Diagrams (DFD), Process Modeling, Use Case Diagrams, Database System Architecture, and important principles used in software analysis and design.",
     "This book introduces Digital Logic concepts, including Boolean Algebra, Logic Gates, Combinational Logic Design, Sequential Logic Design, Number Systems, and Codes used in digital systems.",
     "This book provides an introduction to C++ programming, covering programming fundamentals, Object-Oriented Programming (OOP), Data Structures, and important concepts required for software development.",
+    "This book introduces Data Structures and Algorithms using Java. It covers algorithm analysis, Big O notation, recursion, arrays, linked lists, stacks, queues, trees, graphs, hash maps, hash tables, sorting algorithms, searching algorithms, and practical problem-solving techniques for efficient software development.",
     "This book introduces Python programming, covering programming fundamentals, Object-Oriented Programming (OOP), Data Structures, and essential concepts needed for building strong programming skills." ,
     "This book introduces Programming Concepts, covering important topics such as programming language preliminaries, describing syntax and semantics, names, binding and scopes, data types, expressions and assignment statements, and statement-level control structures. It provides a strong theoretical foundation for understanding how programming languages work." ,
     "This book introduces Computer Architecture, covering the CPU, Main Memory, System Bus, Operating Systems, Input/Output (I/O), and Assembly Language. It provides a solid understanding of how computer hardware and software interact to execute programs.",
@@ -477,13 +480,14 @@
     freeDelivery: "Free Delivery",
     descriptions: [
   "This book introduces Mobile Application Development, starting with the fundamentals of the Dart programming language, then moving to Flutter for building modern mobile user interfaces, and finally covering backend development using PHP to create complete and fully functional mobile applications.",
-  "This book provides a comprehensive introduction to Java programming. It covers the fundamentals of the language, Object-Oriented Programming (OOP), Data Structures, and Algorithms. Designed for university students, it simplifies complex concepts while providing a strong foundation for academic success and professional software development.",
+  "This book introduces Java Fundamentals and Object-Oriented Programming (OOP). It covers data types, variables, comments, operators, conditional statements, loops, methods, arrays, classes and objects, constructors, inheritance, polymorphism, strings, abstract classes, interfaces, vectors, exception handling, and file handling. It provides a strong foundation for building professional Java applications.",
   "This book introduces Artificial Intelligence, covering intelligent agents, problem-solving, search algorithms, knowledge representation, logical reasoning, First-Order Logic (FOL), Prolog, and the fundamentals of intelligent systems.",
   "This book introduces Machine Learning, covering supervised and unsupervised learning, K-Nearest Neighbors (KNN), probability concepts, data analysis using Pandas, data visualization with Matplotlib, and practical machine learning applications.",
   "This book introduces Web Front-End Development, covering HTML, CSS, JavaScript, ReactJS, and Bootstrap. It provides the essential knowledge and practical skills required to build modern, responsive, and interactive web user interfaces." ,
   "This book explains the principles of Software Engineering, including Data Flow Diagrams (DFD), Process Modeling, Use Case Diagrams, Database System Architecture, and the essential concepts used in software analysis, design, and development.",
   "This book introduces the concepts of Digital Logic, including Boolean Algebra, Logic Gates, Combinational Logic Design, Sequential Logic Design, Number Systems, and the coding techniques used in digital systems.",
   "This book provides an introduction to C++ programming. It covers programming fundamentals, Object-Oriented Programming (OOP), Data Structures, and the essential concepts required for developing efficient and reliable software applications.",
+  "This book introduces Data Structures and Algorithms using Java. It covers algorithm analysis, Big O notation, recursion, arrays, linked lists, stacks, queues, trees, graphs, hash maps, hash tables, sorting algorithms, searching algorithms, and practical problem-solving techniques for efficient software development.",
   "This book introduces Python programming. It covers the fundamentals of the language, Object-Oriented Programming (OOP), Data Structures, and the essential concepts needed to build strong programming skills and develop modern software applications." ,
   "This book introduces Programming Concepts, covering important topics such as programming language preliminaries, describing syntax and semantics, names, binding and scopes, data types, expressions and assignment statements, and statement-level control structures. It provides a strong theoretical foundation for understanding how programming languages work."  ,
   "This book introduces Computer Architecture, covering the CPU, Main Memory, System Bus, Operating Systems, Input/Output (I/O), and Assembly Language. It provides a solid understanding of how computer hardware and software interact to execute programs." ,
@@ -525,13 +529,14 @@
     freeDelivery: "Livraison gratuite",
     descriptions: [
       "Ce livre présente le développement d'applications mobiles. Il commence par les bases du langage Dart, puis passe à Flutter pour créer des interfaces mobiles modernes, et se termine par le développement backend avec PHP afin de créer des applications complètes.",
-      "Ce livre offre une introduction complète à la programmation Java. Il couvre les bases du langage, la programmation orientée objet (POO), les structures de données et les algorithmes. Conçu pour les étudiants universitaires, il simplifie les concepts complexes et fournit une base solide pour la réussite académique et le développement logiciel.",
+      "Ce livre présente les bases de Java ainsi que la programmation orientée objet (OOP). Il couvre les types de données, les variables, les commentaires, les opérateurs, les conditions, les boucles, les méthodes, les tableaux, les classes et objets, les constructeurs, l'héritage, le polymorphisme, les chaînes de caractères, les classes abstraites, les interfaces, les vecteurs, la gestion des exceptions et la manipulation des fichiers.",
       "Ce livre présente les bases de l'intelligence artificielle, notamment les agents intelligents, la résolution de problèmes, les algorithmes de recherche, la représentation des connaissances, le raisonnement logique, la logique du premier ordre (FOL), Prolog et les systèmes intelligents." ,
       "Ce livre présente le Machine Learning, y compris l'apprentissage supervisé et non supervisé, l'algorithme KNN, les probabilités, l'analyse de données avec Pandas, la visualisation avec Matplotlib et les applications pratiques.",
       "Ce livre présente le développement Front-End Web, notamment HTML, CSS, JavaScript, ReactJS et Bootstrap. Il fournit les connaissances essentielles et les compétences pratiques nécessaires pour créer des interfaces Web modernes, réactives et interactives.",
       "Ce livre explique les concepts du génie logiciel, notamment les diagrammes de flux de données (DFD), la modélisation des processus, les diagrammes de cas d'utilisation, l'architecture des systèmes de bases de données et les principes fondamentaux de l'analyse et de la conception logicielle.",
       "Ce livre présente les concepts de la logique numérique, notamment l'algèbre de Boole, les portes logiques, les circuits combinatoires, les circuits séquentiels, les systèmes de numération et les codes utilisés dans les systèmes numériques.",
       "Ce livre fournit une introduction à la programmation en C++. Il couvre les bases de la programmation, la programmation orientée objet (POO), les structures de données et les concepts essentiels nécessaires au développement logiciel.",
+      "Ce livre présente les structures de données et les algorithmes en Java. Il couvre l'analyse des algorithmes, la notation Big O, la récursivité, les tableaux, les listes chaînées, les piles, les files, les arbres, les graphes, les HashMap, les HashTable ainsi que les algorithmes de tri et de recherche.",
       "Ce livre présente la programmation Python. Il couvre les bases du langage, la programmation orientée objet (POO), les structures de données et les concepts essentiels pour développer de solides compétences en programmation." ,
       "Ce livre présente les concepts de programmation. Il couvre des sujets importants tels que les préliminaires des langages de programmation, la description de la syntaxe et de la sémantique, les noms, les liaisons et les portées, les types de données, les expressions et les instructions d'affectation, ainsi que les structures de contrôle au niveau des instructions. Il fournit une base théorique solide pour comprendre le fonctionnement des langages de programmation." ,
       "Ce livre présente l'architecture des ordinateurs, notamment le processeur (CPU), la mémoire principale, le bus système, les systèmes d'exploitation, les entrées/sorties (E/S) et le langage Assembleur. Il permet de comprendre comment le matériel et le logiciel interagissent pour exécuter les programmes.",
@@ -573,13 +578,14 @@
     freeDelivery: "Entrega gratuita",
     descriptions: [
   "Este libro presenta el desarrollo de aplicaciones móviles. Comienza con los fundamentos del lenguaje Dart, luego pasa a Flutter para crear interfaces móviles modernas y finalmente cubre el desarrollo backend con PHP para construir aplicaciones completas.",
-  "Este libro ofrece una introducción completa a la programación en Java. Cubre los fundamentos del lenguaje, la Programación Orientada a Objetos (POO), las estructuras de datos y los algoritmos. Está diseñado para estudiantes universitarios y simplifica conceptos complejos para proporcionar una base sólida para el éxito académico y el desarrollo de software.",
+  "Este libro presenta los fundamentos de Java y la Programación Orientada a Objetos (POO). Cubre tipos de datos, variables, comentarios, operadores, estructuras condicionales, bucles, métodos, arreglos, clases y objetos, constructores, herencia, polimorfismo, cadenas, clases abstractas, interfaces, vectores, manejo de excepciones y manejo de archivos.", 
   "Este libro presenta la Inteligencia Artificial, incluyendo agentes inteligentes, resolución de problemas, algoritmos de búsqueda, representación del conocimiento, razonamiento lógico, lógica de primer orden (FOL), Prolog y los fundamentos de los sistemas inteligentes." ,
   "Este libro presenta el Aprendizaje Automático, incluyendo aprendizaje supervisado y no supervisado, KNN, conceptos de probabilidad, análisis de datos con Pandas, visualización con Matplotlib y aplicaciones prácticas." ,
   "Este libro presenta el desarrollo Web Front-End, incluyendo HTML, CSS, JavaScript, ReactJS y Bootstrap. Proporciona los conocimientos esenciales y las habilidades prácticas necesarias para crear interfaces web modernas, adaptables e interactivas" , 
   "Este libro explica los conceptos de Ingeniería de Software, incluyendo Diagramas de Flujo de Datos (DFD), Modelado de Procesos, Diagramas de Casos de Uso, Arquitectura de Sistemas de Bases de Datos y principios fundamentales utilizados en el análisis y diseño de software.",
   "Este libro presenta los conceptos de Lógica Digital, incluyendo Álgebra Booleana, Puertas Lógicas, Diseño de Circuitos Combinacionales, Diseño de Circuitos Secuenciales, Sistemas Numéricos y Códigos utilizados en los sistemas digitales.",
   "Este libro ofrece una introducción a la programación en C++. Cubre los fundamentos de la programación, la Programación Orientada a Objetos (POO), las estructuras de datos y los conceptos esenciales necesarios para el desarrollo de software.",
+  "Este libro presenta las estructuras de datos y los algoritmos utilizando Java. Cubre el análisis de algoritmos, la notación Big O, la recursión, arreglos, listas enlazadas, pilas, colas, árboles, grafos, HashMap, HashTable y los algoritmos de búsqueda y ordenamiento." ,
   "Este libro presenta la programación en Python. Cubre los fundamentos del lenguaje, la Programación Orientada a Objetos (POO), las estructuras de datos y los conceptos esenciales necesarios para desarrollar sólidas habilidades de programación." ,
   "Este libro presenta los conceptos de programación. Cubre temas importantes como los fundamentos de los lenguajes de programación, la descripción de la sintaxis y la semántica, los nombres, los enlaces y ámbitos, los tipos de datos, las expresiones y las instrucciones de asignación, así como las estructuras de control a nivel de instrucciones. Proporciona una base teórica sólida para comprender cómo funcionan los lenguajes de programación." ,
   "Este libro presenta la Arquitectura de Computadores, incluyendo la CPU, la memoria principal, el bus del sistema, los sistemas operativos, la entrada/salida (E/S) y el lenguaje ensamblador. Proporciona una comprensión sólida de cómo interactúan el hardware y el software." ,
@@ -621,13 +627,14 @@
     discount: "Скидка 5%",
     descriptions: [
   "Эта книга посвящена разработке мобильных приложений. Она начинается с основ языка Dart, затем рассматривает Flutter для создания современных мобильных интерфейсов и завершается изучением серверной разработки с использованием PHP для создания полноценных приложений.",
-  "Эта книга представляет собой полное введение в программирование на Java. Она охватывает основы языка, объектно-ориентированное программирование (ООП), структуры данных и алгоритмы. Книга предназначена для студентов университетов, упрощает сложные темы и обеспечивает прочную основу для успешного обучения и разработки программного обеспечения.",
+  "Эта книга знакомит с основами Java и объектно-ориентированным программированием (ООП). В ней рассматриваются типы данных, переменные, комментарии, операторы, условные конструкции, циклы, методы, массивы, классы и объекты, конструкторы, наследование, полиморфизм, строки, абстрактные классы, интерфейсы, Vector, обработка исключений и работа с файлами.",
   "Эта книга знакомит с искусственным интеллектом, включая интеллектуальных агентов, решение задач, алгоритмы поиска, представление знаний, логический вывод, логику первого порядка (FOL), Prolog и основы интеллектуальных систем." ,
   "Эта книга посвящена машинному обучению. В ней рассматриваются контролируемое и неконтролируемое обучение, алгоритм KNN, теория вероятностей, анализ данных с помощью Pandas, визуализация с Matplotlib и практические применения." ,
   "Эта книга посвящена Front-End веб-разработке. В ней рассматриваются HTML, CSS, JavaScript, ReactJS и Bootstrap. Книга предоставляет основные знания и практические навыки, необходимые для создания современных, адаптивных и интерактивных пользовательских веб-интерфейсов.", 
   "Эта книга объясняет основные концепции программной инженерии, включая диаграммы потоков данных (DFD), моделирование процессов, диаграммы вариантов использования, архитектуру систем баз данных и важнейшие принципы анализа и проектирования программного обеспечения.",
   "Эта книга знакомит с основами цифровой логики, включая булеву алгебру, логические элементы, проектирование комбинационных и последовательностных схем, системы счисления и коды, используемые в цифровых системах.",
   "Эта книга представляет собой введение в программирование на C++. Она охватывает основы программирования, объектно-ориентированное программирование (ООП), структуры данных и ключевые концепции, необходимые для разработки программного обеспечения.",
+  "Эта книга знакомит со структурами данных и алгоритмами на Java. В ней рассматриваются анализ алгоритмов, нотация Big O, рекурсия, массивы, связные списки, стеки, очереди, деревья, графы, HashMap, HashTable, а также алгоритмы сортировки и поиска." ,
   "Эта книга знакомит с программированием на Python. Она охватывает основы языка, объектно-ориентированное программирование (ООП), структуры данных и основные концепции, необходимые для формирования прочных навыков программирования." ,
   "Эта книга знакомит с концепциями программирования. Она охватывает важные темы, такие как основы языков программирования, описание синтаксиса и семантики, имена, связывание и области видимости, типы данных, выражения и операторы присваивания, а также управляющие структуры уровня операторов. Книга предоставляет прочную теоретическую основу для понимания работы языков программирования." ,
   "Эта книга посвящена архитектуре компьютеров. В ней рассматриваются процессор (CPU), оперативная память, системная шина, операционные системы, ввод/вывод (I/O) и язык Ассемблер. Книга помогает понять взаимодействие аппаратного и программного обеспечения." ,
@@ -669,13 +676,14 @@
     freeDelivery: "توصيل مجاني",
    descriptions: [
   "يقدم هذا الكتاب تطوير تطبيقات الهاتف المحمول، حيث يبدأ بأساسيات لغة Dart، ثم ينتقل إلى Flutter لبناء واجهات مستخدم حديثة، وأخيرًا يشرح تطوير الـ Backend باستخدام PHP لإنشاء تطبيقات متكاملة.",
-  "يقدم هذا الكتاب مقدمة شاملة في برمجة Java، بدءًا من أساسيات اللغة، ثم البرمجة كائنية التوجه (OOP)، وهياكل البيانات والخوارزميات. صُمم خصيصًا لطلاب الجامعات لتبسيط المفاهيم المعقدة وبناء أساس قوي للنجاح الأكاديمي وتطوير البرمجيات.",
+  "يقدم هذا الكتاب أساسيات لغة Java والبرمجة كائنية التوجه (OOP)، حيث يغطي أنواع البيانات، المتغيرات، التعليقات، المعاملات، الجمل الشرطية، الحلقات، الدوال، المصفوفات، الأصناف والكائنات، البُنّاء (Constructor)، الوراثة، تعدد الأشكال، السلاسل النصية، الأصناف المجردة، الواجهات، Vector، معالجة الاستثناءات، والتعامل مع الملفات، ليؤسس قاعدة قوية في تطوير تطبيقات Java.",
   "يقدم هذا الكتاب مقدمة في الذكاء الاصطناعي، حيث يغطي الوكلاء الأذكياء، حل المشكلات، خوارزميات البحث، تمثيل المعرفة، الاستدلال المنطقي، منطق الرتبة الأولى (FOL)، لغة Prolog، وأساسيات الأنظمة الذكية." ,
   "يقدم هذا الكتاب مقدمة في تعلم الآلة، حيث يغطي التعلم الموجّه وغير الموجّه، خوارزمية K-Nearest Neighbors (KNN)، مفاهيم الاحتمالات، تحليل البيانات باستخدام Pandas، عرض البيانات باستخدام Matplotlib، والتطبيقات العملية لتعلم الآلة." ,
   "يقدم هذا الكتاب تطوير واجهات الويب الأمامية (Web Front-End)، حيث يغطي HTML وCSS وJavaScript وReactJS وBootstrap، ويوفر المعرفة والمهارات العملية اللازمة لبناء واجهات ويب حديثة ومتجاوبة وتفاعلية.",
   "يشرح هذا الكتاب مفاهيم هندسة البرمجيات، بما في ذلك مخططات تدفق البيانات (DFD)، ونمذجة العمليات، ومخططات حالات الاستخدام (Use Case Diagrams)، وبنية أنظمة قواعد البيانات، وأهم المبادئ المستخدمة في تحليل وتصميم البرمجيات.",
   "يقدم هذا الكتاب مفاهيم المنطق الرقمي، بما في ذلك الجبر البولياني، والبوابات المنطقية، وتصميم الدوائر التوافقية، وتصميم الدوائر التسلسلية، وأنظمة الأعداد، والرموز المستخدمة في الأنظمة الرقمية.",
   "يقدم هذا الكتاب مقدمة في برمجة ++C، حيث يغطي أساسيات البرمجة، والبرمجة كائنية التوجه (OOP)، وهياكل البيانات، وأهم المفاهيم المطلوبة لتطوير البرمجيات.",
+  "يقدم هذا الكتاب هياكل البيانات والخوارزميات باستخدام Java، حيث يغطي تحليل الخوارزميات، وتعقيد Big O، والاستدعاء الذاتي (Recursion)، والمصفوفات، والقوائم المرتبطة (Linked Lists)، والمكدسات (Stacks)، والطوابير (Queues)، والأشجار (Trees)، والرسوم البيانية (Graphs)، وHashMap وHashTable، بالإضافة إلى خوارزميات البحث والترتيب وأساليب حل المشكلات البرمجية بكفاءة." ,
   "يقدم هذا الكتاب برمجة Python، حيث يغطي أساسيات اللغة، والبرمجة كائنية التوجه (OOP)، وهياكل البيانات، والمفاهيم الأساسية اللازمة لبناء مهارات قوية في البرمجة." ,
   "يقدم هذا الكتاب مفاهيم البرمجة، حيث يغطي مواضيع مهمة مثل أساسيات لغات البرمجة، وصف بناء الجملة والدلالات، الأسماء والربط ونطاقات الرؤية، أنواع البيانات، التعابير وجمل الإسناد، بالإضافة إلى هياكل التحكم على مستوى التعليمات. يوفر الكتاب أساسًا نظريًا قويًا لفهم كيفية عمل لغات البرمجة." ,
   "يقدم هذا الكتاب معمارية الحاسوب، حيث يغطي وحدة المعالجة المركزية (CPU)، والذاكرة الرئيسية، وناقل النظام (Bus)، وأنظمة التشغيل، والإدخال والإخراج (Input/Output)، ولغة Assembly، مما يوفر فهماً لكيفية عمل مكونات الحاسوب معاً.",
@@ -688,13 +696,14 @@
 };
     const prices = {
         "Mobile App" : 20 ,
-        "Java" : 19 ,
+        "Java Fundamentals & OOP" : 15 ,
         "Artificial Intelligence" : 15 ,
         "Machine Learning" : 15 ,
         "Web Front-End" : 15 ,
         "Software Engineering" : 15 ,
         "Digital Logic" : 15 ,
         "C++" : 20 ,
+        "Java Data Structures and Algorithms" : 15 ,
         "Python" : 19 ,
         "Programming Concepts" : 15 ,
         "Computer Architecture" : 15 ,
@@ -702,13 +711,14 @@
     };
     const exercisePrices = {
         "Mobile App" : 6 ,
-        "Java" : 5 ,
+        "Java Fundamentals & OOP" : 5 ,
         "Artificial Intelligence" : 5 ,
         "Machine Learning" : 8 ,
         "Web Front-End" : 5 ,
         "Software Engineering" : 5 ,
         "Digital Logic" : 5 ,
         "C++" : 5 ,
+        "Java Data Structures and Algorithms" : 5 ,
         "Python" : 5 ,
         "Programming Concepts" : 5 ,
         "Computer Architecture" : 5 ,
