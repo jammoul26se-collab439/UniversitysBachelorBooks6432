@@ -221,6 +221,16 @@
             box-sizing: border-box;
             text-align-last : center;
         }
+        #qrBtn {
+            background: #1e3a8a;
+            color: white;
+        }
+        #closeQRBtn {
+            background: gray;
+            width:90px;
+            padding: 8px;
+            margin-top: 20px;
+        }
         @media(max-width: 768px) {
             body {
                 zoom: 0.9;
@@ -280,6 +290,116 @@
                 margin-top: 25px;
             }
         }
+        @media (min-width: 769px) and (max-width: 900px) {
+
+    body {
+        zoom: 0.9;
+        display: block;
+        padding: 20px;
+    }
+
+    .left-content {
+        position: static;
+        width: 100%;
+        margin-bottom: 30px;
+    }
+
+    .carousel-container {
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
+        gap: 25px;
+    }
+
+    .carousel {
+        width: 450px;
+        margin-left: auto;
+        margin-right: 0;
+        margin-top: -30px;
+    }
+
+    .carousel img {
+        width: 100%;
+        height: 360px;
+        object-fit: contain;
+    }
+
+    #description {
+        margin-left: 0;
+        margin-top: 15px;
+        font-size: 15px;
+        white-space: normal;
+        text-align: left;
+    }
+
+    #titleBar {
+        width: 100%;
+        padding: 10px;
+    }
+
+    #titleBar h1 {
+        font-size: 38px;
+    }
+
+    #intro-text {
+        font-size: 17px;
+        line-height: 1.6;
+    }
+
+    .button-row {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+
+    #showFormBtn,
+    #aboutBtn,
+    #optionsBtn {
+        font-size: 12px;
+        padding: 14px 28px;
+    }
+
+    .forms-container {
+        display: flex;
+        flex-direction: row;
+        gap: 20px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+    }
+
+    #bookForm {
+        width: 300px;
+        box-sizing: border-box;
+    }
+
+    #orderBox {
+        width: 500px;
+        box-sizing: border-box;
+    }
+
+    #bookForm input,
+    #bookForm select,
+    #orderBox select {
+        width: 95%;
+    }
+
+    #ordersTable {
+        width: 100%;
+        font-size: 14px;
+    }
+
+    #submitContainer {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .options-box {
+        width: 340px;
+    }
+
+    #languageSelect {
+        font-size: 15px;
+    }
+}
     </style>
 </head>
 <body>
@@ -406,6 +526,7 @@
      <option>العربية</option>
 </select>
 </div>
+        <button id="qrBtn" onclick="openQRModal()">Scan QR Code</button>
         <button id="closeOptionsBtn" onclick="closeOptions()">Close</button>
     </div>
    </div>
@@ -886,6 +1007,15 @@
             btn.style.background = "green";
         }
     }
+
+    function openQRModal() {
+        playClickSound();
+        document.getElementById("qrModal").style.display = "flex";
+    }
+    function closeQRModal() {
+        playClickSound();
+        document.getElementById("qrModal").style.display = "none";
+    }
     function toggleLanguages() {
         playClickSound();
         const menu = document.getElementById("languageMenu");
@@ -1046,5 +1176,12 @@
     alert("Notice: This website is not active and should not be used before September 1 , 2026");
    };
     </script>
+    <div id="qrModal" style="display:none; position:fixed; inset:0; background:rgba(0 , 0 , 0 , 0.6); justify-content: center; align-items: center; z-index:10000;">
+        <div class="options-box">
+            <h3>Scan My University's Book Page</h3>
+            <img src="BooksQR.png" alt="BooksQR" style="width:220px; max-width:100%; margin:15px 0;">
+            <button id="closeQRBtn" onclick="closeQRModal()">Close</button>
+        </div>
+    </div>
 </body>
 </html>
